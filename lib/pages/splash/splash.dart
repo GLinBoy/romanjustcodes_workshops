@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
       color: mainColor,
       child: Stack(
         children: [
-          Align(
+          const Align(
             alignment: Alignment.center,
             child: Icon(
               Icons.terrain,
@@ -26,10 +26,10 @@ class SplashPage extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 bottom: 80,
               ),
-              child: CircularProgressIndicator(
+              child: const CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
                   Colors.white,
                 ),
@@ -45,7 +45,7 @@ class SplashPage extends StatelessWidget {
 class MountsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('Welcome to Mounts of the World'),
       ),
