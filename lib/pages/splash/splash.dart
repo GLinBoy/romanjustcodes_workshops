@@ -7,6 +7,10 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => MountsApp()));
+    });
     return Container(
       color: mainColor,
       child: Stack(
