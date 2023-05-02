@@ -9,7 +9,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => MountsApp()));
+          .push(MaterialPageRoute(builder: (context) => MountsApp()));
     });
     return Container(
       color: mainColor,
@@ -49,6 +49,6 @@ class MountsApp extends StatelessWidget {
       body: Center(
         child: Text('Welcome to Mounts of the World'),
       ),
-    )
+    );
   }
 }
