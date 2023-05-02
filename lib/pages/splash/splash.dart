@@ -37,3 +37,14 @@ class SplashPage extends StatelessWidget {
     );
   }
 }
+
+class MountsApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text('Welcome to Mounts of the World'),
+      ),
+    )
+  }
+}
