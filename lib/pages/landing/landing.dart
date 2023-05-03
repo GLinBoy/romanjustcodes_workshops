@@ -254,3 +254,10 @@ class MountModel {
       this.location = '',
       this.description = ''});
 }
+
+class CategoryModel {
+  String category;
+  IconData? icon;
+
+  CategoryModel({this.category = '', this.icon});
+}
