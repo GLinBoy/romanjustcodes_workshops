@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:romanjustcodes_workshops/pages/splash/splash.dart';
 
-class SplashPage extends StatelessWidget {
-  SplashPage({super.key});
+class LandingPage extends StatelessWidget {
+  LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
