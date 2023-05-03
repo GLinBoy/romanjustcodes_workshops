@@ -5,7 +5,13 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(),
+      drawer: Drawer(),
+      body: Center(
+        child: Text('Welcome to Mounts of the World!'),
+      ),
+    );
   }
 }
