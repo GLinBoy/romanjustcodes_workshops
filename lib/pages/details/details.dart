@@ -5,7 +5,18 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Expanded(
+            child: Text('Details Top'),
+          ),
+          Expanded(
+            child: Text('Details Bottom'),
+          ),
+        ],
+      ),
+    );
   }
 }
