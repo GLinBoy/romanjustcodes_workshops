@@ -21,9 +21,9 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.all(12),
         child: GridView.builder(
-          itemCount: 2,
+          itemCount: pageItems.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: pageItems.length,
+            crossAxisCount: 3,
             crossAxisSpacing: 4,
             mainAxisSpacing: 4,
           ),
