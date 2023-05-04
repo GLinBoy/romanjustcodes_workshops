@@ -10,15 +10,36 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Demo'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Open Route'),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const SplashPage()));
+      body: Container(
+        padding: EdgeInsets.all(12),
+        child: GridView.builder(
+          itemCount: 2,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: pageItems.length,
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 4,
+          ),
+          itemBuilder: (context, index) {
+            return ElevatedButton(
+              child: Text(pageItems[index].label!),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => pageItems[index].page!));
+              },
+            );
           },
         ),
       ),
     );
   }
+}
+
+class PageItem {
+  IconData? icon;
+  String? label;
+  Widget? page;
+
+  PageItem({this.icon, this.label, this.page});
 }
