@@ -97,6 +97,42 @@ class DetailsPage extends StatelessWidget {
             child: Column(
               children: [
                 DetailsRatingBar(),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 20,
+                          right: 20,
+                          bottom: 20,
+                        ),
+                        child: Text(
+                          'About ${selectedItem.name}',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 20,
+                          right: 20,
+                          bottom: 20,
+                        ),
+                        child: Text(
+                          '${selectedItem.description}',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
