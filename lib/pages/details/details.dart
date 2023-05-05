@@ -195,6 +195,8 @@ class DetailsRatingBar extends StatelessWidget {
 }
 
 class DetailsBottomActions extends StatelessWidget {
+  const DetailsBottomActions({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
