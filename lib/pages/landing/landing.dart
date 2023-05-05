@@ -99,6 +99,8 @@ class LandingPage extends StatelessWidget {
 }
 
 class AppHeader extends StatelessWidget {
+  const AppHeader({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
