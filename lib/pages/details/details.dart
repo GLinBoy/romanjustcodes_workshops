@@ -153,14 +153,14 @@ class DetailsRatingBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List.generate(
           sampleRatingData.entries.length,
           (index) => Container(
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               border: Border.all(
                 color: Colors.grey.withOpacity(0.2),
@@ -172,14 +172,14 @@ class DetailsRatingBar extends StatelessWidget {
               children: [
                 Text(
                   sampleRatingData.entries.elementAt(index).key,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   sampleRatingData.entries.elementAt(index).value,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: mainColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
@@ -198,7 +198,7 @@ class DetailsBottomActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: 20,
         right: 20,
         bottom: 20,
@@ -227,14 +227,14 @@ class DetailsBottomActions extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 10),
-            padding: EdgeInsets.all(15),
+            margin: const EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.white,
               border: Border.all(color: mainColor, width: 2),
             ),
-            child: Icon(
+            child: const Icon(
               Icons.turned_in_not,
               color: mainColor,
               size: 25,
