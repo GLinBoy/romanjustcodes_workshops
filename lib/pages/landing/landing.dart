@@ -46,7 +46,7 @@ final List<CategoryModel> categories = [
 ];
 
 class LandingPage extends StatelessWidget {
-  LandingPage({super.key});
+  const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,27 +55,27 @@ class LandingPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Center(
+        title: const Center(
           child: Icon(
             Icons.terrain,
             color: mainColor,
             size: 40,
           ),
         ),
-        actions: [
+        actions: const [
           SizedBox(
             width: 40,
             height: 40,
           )
         ],
-        iconTheme: IconThemeData(color: mainColor),
+        iconTheme: const IconThemeData(color: mainColor),
       ),
       drawer: Drawer(
         child: Container(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           color: mainColor,
           alignment: Alignment.bottomLeft,
-          child: Icon(
+          child: const Icon(
             Icons.terrain,
             color: Colors.white,
             size: 80,
@@ -113,12 +113,12 @@ class AppHeader extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Text(
                 'Hello, Roman',
                 style: TextStyle(
@@ -149,14 +149,14 @@ class AppSearch extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Discover',
             style: TextStyle(
               fontWeight: FontWeight.w900,
               fontSize: 25,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
@@ -169,7 +169,7 @@ class AppSearch extends StatelessWidget {
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.circular(10)),
                   child: Row(
-                    children: [
+                    children: const [
                       Icon(
                         Icons.search,
                         color: Colors.grey,
@@ -186,14 +186,14 @@ class AppSearch extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 10),
+                margin: const EdgeInsets.only(left: 10),
                 width: 50,
                 height: 50,
                 decoration: BoxDecoration(
                   color: mainColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.tune,
                   color: Colors.white,
                 ),
@@ -234,14 +234,14 @@ class AppMountListView extends StatelessWidget {
                   children: [
                     Text(
                       currentMount.name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       currentMount.location,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
                     ),
@@ -262,7 +262,7 @@ class AppCategoryList extends StatelessWidget {
             padding: EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text(
                   'Category',
                   style: TextStyle(
@@ -283,7 +283,7 @@ class AppCategoryList extends StatelessWidget {
           ),
           Container(
             height: 100,
-            margin: EdgeInsets.only(left: 10),
+            margin: const EdgeInsets.only(left: 10),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: categories.length,
@@ -291,8 +291,8 @@ class AppCategoryList extends StatelessWidget {
                 CategoryModel currentCategory = categories[index];
                 return Container(
                   width: 100,
-                  margin: EdgeInsets.only(top: 10, right: 10),
-                  padding: EdgeInsets.all(10),
+                  margin: const EdgeInsets.only(top: 10, right: 10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Colors.grey.withOpacity(0.2),
@@ -309,7 +309,7 @@ class AppCategoryList extends StatelessWidget {
                       ),
                       Text(
                         currentCategory.category,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -344,8 +344,8 @@ class AppBottomBarState extends State<AppBottomBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -365,8 +365,8 @@ class AppBottomBarState extends State<AppBottomBar> {
             Widget barItemWidget;
             if (currentBarItem.isSelected) {
               barItemWidget = Container(
-                padding:
-                    EdgeInsets.only(left: 15, top: 5, bottom: 5, right: 15),
+                padding: const EdgeInsets.only(
+                    left: 15, top: 5, bottom: 5, right: 15),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: mainColor,
@@ -377,10 +377,10 @@ class AppBottomBarState extends State<AppBottomBar> {
                       currentBarItem.icon,
                       color: Colors.white,
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Text(
                       currentBarItem.label,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ],
                 ),
