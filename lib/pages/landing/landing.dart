@@ -144,6 +144,8 @@ class AppHeader extends StatelessWidget {
 }
 
 class AppSearch extends StatelessWidget {
+  const AppSearch({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
