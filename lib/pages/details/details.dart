@@ -144,7 +144,9 @@ class DetailsPage extends StatelessWidget {
 }
 
 class DetailsRatingBar extends StatelessWidget {
-  var sampleRatingData = {
+  const DetailsRatingBar({super.key});
+
+  final sampleRatingData = const {
     'Rating': '4.6',
     'Price': '\$12',
     'Open': '24Hrs',
