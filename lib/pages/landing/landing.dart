@@ -211,6 +211,8 @@ class AppSearch extends StatelessWidget {
 }
 
 class AppMountListView extends StatelessWidget {
+  const AppMountListView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
