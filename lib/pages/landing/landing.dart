@@ -85,8 +85,8 @@ class LandingPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AppHeader(),
-          AppSearch(),
+          const AppHeader(),
+          const AppSearch(),
           Expanded(
             child: AppMountListView(),
           ),
@@ -104,7 +104,7 @@ class AppHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 30, top: 30, right: 30),
+      padding: const EdgeInsets.only(left: 30, top: 30, right: 30),
       child: Row(
         children: [
           ClipOval(
@@ -149,7 +149,7 @@ class AppSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -168,7 +168,7 @@ class AppSearch extends StatelessWidget {
               Expanded(
                 child: Container(
                   height: 50,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.circular(10)),
@@ -222,8 +222,8 @@ class AppMountListView extends StatelessWidget {
             MountModel currentMount = mountItems[index];
             return Container(
               alignment: Alignment.bottomLeft,
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.all(10),
               width: 150,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -263,7 +263,7 @@ class AppCategoryList extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
