@@ -335,6 +335,8 @@ class AppCategoryList extends StatelessWidget {
 }
 
 class AppBottomBar extends StatefulWidget {
+  const AppBottomBar({super.key});
+
   @override
   AppBottomBarState createState() => AppBottomBarState();
 }
