@@ -259,6 +259,8 @@ class AppMountListView extends StatelessWidget {
 }
 
 class AppCategoryList extends StatelessWidget {
+  const AppCategoryList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
