@@ -84,9 +84,9 @@ class LandingPage extends StatelessWidget {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const AppHeader(),
-          const AppSearch(),
+        children: const [
+          AppHeader(),
+          AppSearch(),
           Expanded(
             child: AppMountListView(),
           ),
