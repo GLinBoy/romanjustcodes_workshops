@@ -9,7 +9,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => MountsApp()));
+          .push(MaterialPageRoute(builder: (context) => const MountsApp()));
     });
     return Container(
       color: mainColor,
@@ -43,6 +43,8 @@ class SplashPage extends StatelessWidget {
 }
 
 class MountsApp extends StatelessWidget {
+  const MountsApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
