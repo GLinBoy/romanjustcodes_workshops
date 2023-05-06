@@ -14,13 +14,13 @@ class DetailsPage extends StatelessWidget {
         children: [
           Expanded(
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(40),
                   bottomRight: Radius.circular(40)),
               child: Stack(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(30),
+                    padding: const EdgeInsets.all(30),
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(selectedItem.path),
@@ -51,7 +51,7 @@ class DetailsPage extends StatelessWidget {
                       children: [
                         Text(
                           selectedItem.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -59,7 +59,7 @@ class DetailsPage extends StatelessWidget {
                         ),
                         Text(
                           selectedItem.location,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                           ),
@@ -70,8 +70,8 @@ class DetailsPage extends StatelessWidget {
                   AppBar(
                     elevation: 0,
                     backgroundColor: Colors.transparent,
-                    iconTheme: IconThemeData(color: Colors.white),
-                    title: Center(
+                    iconTheme: const IconThemeData(color: Colors.white),
+                    title: const Center(
                       child: Icon(
                         Icons.terrain,
                         color: Colors.white,
@@ -80,8 +80,8 @@ class DetailsPage extends StatelessWidget {
                     ),
                     actions: [
                       Container(
-                        margin: EdgeInsets.only(right: 10),
-                        child: Icon(
+                        margin: const EdgeInsets.only(right: 10),
+                        child: const Icon(
                           Icons.pending,
                           color: Colors.white,
                           size: 30,
@@ -96,13 +96,13 @@ class DetailsPage extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                DetailsRatingBar(),
+                const DetailsRatingBar(),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           left: 20,
                           right: 20,
                           bottom: 20,
@@ -110,7 +110,7 @@ class DetailsPage extends StatelessWidget {
                         child: Text(
                           'About ${selectedItem.name}',
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -118,14 +118,14 @@ class DetailsPage extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           left: 20,
                           right: 20,
                           bottom: 20,
                         ),
                         child: Text(
-                          '${selectedItem.description}',
-                          style: TextStyle(
+                          selectedItem.description,
+                          style: const TextStyle(
                             fontSize: 12,
                           ),
                         ),
@@ -133,7 +133,7 @@ class DetailsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                DetailsBottomActions(),
+                const DetailsBottomActions(),
               ],
             ),
           ),
@@ -218,8 +218,8 @@ class DetailsBottomActions extends StatelessWidget {
                 splashColor: Colors.white.withOpacity(0.2),
                 onTap: () {},
                 child: Container(
-                  padding: EdgeInsets.all(21),
-                  child: Text(
+                  padding: const EdgeInsets.all(21),
+                  child: const Text(
                     'Book Now',
                     textAlign: TextAlign.center,
                     style: TextStyle(
