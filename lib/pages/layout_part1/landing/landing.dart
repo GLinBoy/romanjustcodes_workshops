@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:romanjustcodes_workshops/pages/splash/splash.dart';
+import 'package:romanjustcodes_workshops/pages/layout_part1/splash/splash.dart';
 
 final List<MountModel> mountItems = [
   MountModel(

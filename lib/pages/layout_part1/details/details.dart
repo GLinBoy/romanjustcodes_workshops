@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:romanjustcodes_workshops/pages/landing/landing.dart';
-import 'package:romanjustcodes_workshops/pages/splash/splash.dart';
+import 'package:romanjustcodes_workshops/pages/layout_part1/landing/landing.dart';
+import 'package:romanjustcodes_workshops/pages/layout_part1/splash/splash.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({super.key});

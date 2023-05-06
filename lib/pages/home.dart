@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'splash/splash.dart';
-import 'landing/landing.dart';
-import 'details/details.dart';
+import 'layout_part1/splash/splash.dart';
+import 'layout_part1/landing/landing.dart';
+import 'layout_part1/details/details.dart';
 
 final List<PageItem> pageItems = [
   PageItem(label: 'Splash', page: const SplashPage()),
