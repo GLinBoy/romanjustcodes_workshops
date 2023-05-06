@@ -4,9 +4,9 @@ import 'landing/landing.dart';
 import 'details/details.dart';
 
 final List<PageItem> pageItems = [
-  PageItem(label: 'Splash', page: SplashPage()),
-  PageItem(label: 'Landing', page: LandingPage()),
-  PageItem(label: 'Detail', page: DetailsPage()),
+  PageItem(label: 'Splash', page: const SplashPage()),
+  PageItem(label: 'Landing', page: const LandingPage()),
+  PageItem(label: 'Detail', page: const DetailsPage()),
 ];
 
 class HomeScreen extends StatelessWidget {
@@ -19,10 +19,10 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Flutter Demo'),
       ),
       body: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: GridView.builder(
           itemCount: pageItems.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             crossAxisSpacing: 4,
             mainAxisSpacing: 4,
