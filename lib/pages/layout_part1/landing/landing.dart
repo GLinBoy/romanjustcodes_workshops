@@ -226,7 +226,7 @@ class AppMountListView extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
-                  image: NetworkImage(currentMount.path),
+                  image: AssetImage(currentMount.path),
                   fit: BoxFit.cover,
                 ),
               ),
