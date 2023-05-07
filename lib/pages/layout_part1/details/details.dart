@@ -23,7 +23,7 @@ class DetailsPage extends StatelessWidget {
                     padding: const EdgeInsets.all(30),
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(selectedItem.path),
+                        image: AssetImage(selectedItem.path),
                         fit: BoxFit.cover,
                       ),
                     ),
