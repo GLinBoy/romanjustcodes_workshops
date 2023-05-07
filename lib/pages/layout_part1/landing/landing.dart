@@ -104,8 +104,8 @@ class AppHeader extends StatelessWidget {
       child: Row(
         children: [
           ClipOval(
-            child: Image.network(
-              'https://avatars.githubusercontent.com/u/5081804?v=4',
+            child: Image.asset(
+              'images/layout_part1/5081804.jpg',
               width: 50,
               height: 50,
               fit: BoxFit.cover,
