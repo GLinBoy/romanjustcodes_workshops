@@ -3,11 +3,13 @@ import 'package:romanjustcodes_workshops/pages/layout_part1/landing/landing.dart
 import 'package:romanjustcodes_workshops/pages/layout_part1/splash/splash.dart';
 
 class DetailsPage extends StatelessWidget {
-  const DetailsPage({super.key});
+  MountModel mount;
+
+  DetailsPage(this.mount);
 
   @override
   Widget build(BuildContext context) {
-    var selectedItem = mountItems[3];
+    var selectedItem = mount;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
