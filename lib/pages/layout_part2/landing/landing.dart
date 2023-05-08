@@ -5,6 +5,37 @@ final Color primaryGray = Color(0xFF313131);
 final Color secondaryGray = Color(0xFF1C1C1C);
 final Color lightGray = Color(0xFF3B3B3B);
 
+final List<AttractionModel> attractions = [
+  AttractionModel(
+      imgPath:
+          'https://images.pexels.com/photos/260590/pexels-photo-260590.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      name: 'Golden Gate Bridge',
+      location: 'San Francisco, CA',
+      description:
+          'The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean.'),
+  AttractionModel(
+      imgPath:
+          'https://images.pexels.com/photos/5627275/pexels-photo-5627275.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      name: 'Brooklyn Bridge',
+      location: 'Brooklyn, NY',
+      description:
+          'The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean.'),
+  AttractionModel(
+      imgPath:
+          'https://images.pexels.com/photos/5241381/pexels-photo-5241381.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+      name: 'London Bridge',
+      location: 'London, UK',
+      description:
+          'The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean.'),
+  AttractionModel(
+      imgPath:
+          'https://images.pexels.com/photos/1680247/pexels-photo-1680247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+      name: 'Harbour Bridge',
+      location: 'Sydney, AU',
+      description:
+          'The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean.')
+];
+
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
@@ -60,6 +91,7 @@ class LandingPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HeaderWidget(),
+            AttractionListView(),
           ],
         ),
       ),
@@ -138,4 +170,106 @@ class HeaderWidget extends StatelessWidget {
       ],
     );
   }
+}
+
+class AttractionListView extends StatelessWidget {
+  const AttractionListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView.builder(
+        padding: EdgeInsets.only(left: 10),
+        itemCount: attractions.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          AttractionModel currentAttraction = attractions[index];
+          return AttractionCard(attractionModel: currentAttraction);
+        },
+      ),
+    );
+  }
+}
+
+class AttractionCard extends StatelessWidget {
+  AttractionCard({this.attractionModel});
+
+  AttractionModel? attractionModel;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 180,
+      margin: EdgeInsets.all(10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(attractionModel!.imgPath!),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withOpacity(0.5),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        attractionModel!.name!,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        attractionModel!.location!,
+                        style: TextStyle(color: mainYellow),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AttractionModel {
+  String? imgPath;
+  String? name;
+  String? location;
+  String? description;
+
+  AttractionModel({
+    this.imgPath,
+    this.name,
+    this.location,
+    this.description,
+  });
 }
