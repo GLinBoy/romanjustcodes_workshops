@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:romanjustcodes_workshops/pages/layout_part1/landing/landing.dart';
 
 const Color mainColor = Color(0xFFFF5656);
 
@@ -49,7 +50,7 @@ class MountsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Welcome to Mounts of the World'),
+        child: LandingPage(),
       ),
     );
   }
