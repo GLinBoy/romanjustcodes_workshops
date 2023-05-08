@@ -11,6 +11,29 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: primaryGray,
+        iconTheme: IconThemeData(color: mainYellow),
+        title: Center(
+          child: Icon(
+            Icons.airplanemode_on,
+            color: mainYellow,
+          ),
+        ),
+        actions: [
+          Container(
+            margin: EdgeInsets.only(right: 10),
+            child: IconButton(
+                icon: Icon(
+                  Icons.notifications_on_outlined,
+                  color: Colors.grey,
+                ),
+                onPressed: () {}),
+          ),
+        ],
+      ),
+      drawer: Drawer(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
