@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:romanjustcodes_workshops/pages/layout_part1/details/details.dart';
 import 'package:romanjustcodes_workshops/pages/layout_part1/splash/splash.dart';
 
 final List<MountModel> mountItems = [
@@ -218,36 +219,45 @@ class AppMountListView extends StatelessWidget {
           itemCount: mountItems.length,
           itemBuilder: (context, index) {
             MountModel currentMount = mountItems[index];
-            return Container(
-              alignment: Alignment.bottomLeft,
-              padding: const EdgeInsets.all(20),
-              margin: const EdgeInsets.all(10),
-              width: 150,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: AssetImage(currentMount.path),
-                  fit: BoxFit.cover,
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => DetailsPage(currentMount),
+                  ),
+                );
+              },
+              child: Container(
+                alignment: Alignment.bottomLeft,
+                padding: const EdgeInsets.all(20),
+                margin: const EdgeInsets.all(10),
+                width: 150,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: AssetImage(currentMount.path),
+                    fit: BoxFit.cover,
+                  ),
                 ),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        currentMount.name,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        currentMount.location,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ]),
               ),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      currentMount.name,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      currentMount.location,
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ]),
             );
           }),
     );
