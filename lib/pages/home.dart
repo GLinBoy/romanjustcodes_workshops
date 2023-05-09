@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:romanjustcodes_workshops/pages/layout_part2/details/details.dart';
-import 'package:romanjustcodes_workshops/pages/layout_part2/landing/landing.dart';
-import 'layout_part1/splash/splash.dart';
+import 'layout_part1/splash/splash.dart' as sp_pt1;
+import 'layout_part2/splash/splash.dart' as sp_pt2;
 
 final List<PageItem> pageItems = [
-  PageItem(label: 'Layout Pt.1', page: const SplashPage()),
-  PageItem(label: 'Landing Pt.2', page: const LandingPage()),
-  PageItem(
-      label: 'Details Pt.2',
-      page: DetailsPage(
-        selectedModel: attractions[0],
-      )),
+  PageItem(label: 'Layout Pt.1', page: const sp_pt1.SplashPage()),
+  PageItem(label: 'Layout Pt.2', page: sp_pt2.SplashPage()),
 ];
 
 class HomeScreen extends StatelessWidget {
