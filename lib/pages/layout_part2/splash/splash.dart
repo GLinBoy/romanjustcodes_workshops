@@ -4,6 +4,13 @@ import 'package:romanjustcodes_workshops/pages/layout_part2/landing/landing.dart
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => LandingPage(),
+        ),
+      );
+    });
     return Stack(
       children: [
         Container(
