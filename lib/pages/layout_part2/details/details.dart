@@ -4,7 +4,7 @@ import 'package:romanjustcodes_workshops/pages/layout_part2/landing/landing.dart
 class DetailsPage extends StatelessWidget {
   AttractionModel? selectedModel;
 
-  DetailsPage({this.selectedModel});
+  DetailsPage({this.selectedModel, super.key});
 
   @override
   Widget build(BuildContext context) {
