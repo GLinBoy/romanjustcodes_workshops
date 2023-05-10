@@ -32,14 +32,14 @@ class DetailsPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(30),
+            padding: const EdgeInsets.all(30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
                   selectedModel!.name!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -51,19 +51,19 @@ class DetailsPage extends StatelessWidget {
                     color: mainYellow,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   selectedModel!.description!,
                   style: TextStyle(
                     color: Colors.white.withOpacity(0.7),
                   ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
-                      child: Text(
+                      child: const Text(
                         'View Comments',
                         style: TextStyle(color: Colors.white),
                       ),
@@ -78,9 +78,13 @@ class DetailsPage extends StatelessWidget {
                           splashColor: Colors.black.withOpacity(0.1),
                           highlightColor: Colors.black.withOpacity(0.2),
                           child: Container(
-                            padding: EdgeInsets.only(
-                                top: 10, bottom: 10, left: 20, right: 20),
-                            child: Text(
+                            padding: const EdgeInsets.only(
+                              top: 10,
+                              bottom: 10,
+                              left: 20,
+                              right: 20,
+                            ),
+                            child: const Text(
                               'Use Itinerary',
                               style: TextStyle(
                                   color: Colors.black,
@@ -103,7 +107,7 @@ class DetailsPage extends StatelessWidget {
                 Center(child: Icon(Icons.airplanemode_on, color: mainYellow)),
             actions: [
               Container(
-                margin: EdgeInsets.only(right: 10),
+                margin: const EdgeInsets.only(right: 10),
                 child: IconButton(
                   icon: Icon(Icons.favorite, color: mainYellow),
                   onPressed: () {},
