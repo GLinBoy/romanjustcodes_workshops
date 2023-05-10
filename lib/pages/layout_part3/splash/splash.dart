@@ -5,6 +5,17 @@ const mainThemeColor = Color(0xFF272D8D);
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => ListPage(),
+          ),
+        );
+      },
+    );
+
     return Stack(
       children: [
         Container(
