@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:romanjustcodes_workshops/pages/layout_part2/landing/landing.dart';
 
 class SplashPage extends StatelessWidget {
+  const SplashPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
