@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:romanjustcodes_workshops/pages/layout_part2/details/details.dart';
 
-final Color mainYellow = Color(0xFFFFB02F);
-final Color primaryGray = Color(0xFF313131);
-final Color secondaryGray = Color(0xFF1C1C1C);
-final Color lightGray = Color(0xFF3B3B3B);
+Color mainYellow = const Color(0xFFFFB02F);
+Color primaryGray = const Color(0xFF313131);
+Color secondaryGray = const Color(0xFF1C1C1C);
+Color lightGray = const Color(0xFF3B3B3B);
 
 final List<AttractionModel> attractions = [
   AttractionModel(
@@ -62,9 +62,9 @@ class LandingPage extends StatelessWidget {
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 10),
+            margin: const EdgeInsets.only(right: 10),
             child: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.notifications_on_outlined,
                 color: Colors.grey,
               ),
@@ -77,8 +77,8 @@ class LandingPage extends StatelessWidget {
         child: Container(
           color: mainYellow,
           alignment: Alignment.bottomLeft,
-          padding: EdgeInsets.all(20),
-          child: Icon(
+          padding: const EdgeInsets.all(20),
+          child: const Icon(
             Icons.airplanemode_on,
             size: 80,
             color: Colors.black,
@@ -99,8 +99,8 @@ class LandingPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            HeaderWidget(),
-            AttractionListView(),
+            const HeaderWidget(),
+            const AttractionListView(),
             BottomBarWidget(),
           ],
         ),
@@ -118,7 +118,7 @@ class HeaderWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: 30,
             left: 30,
             right: 30,
@@ -126,7 +126,7 @@ class HeaderWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Where do you',
                 style: TextStyle(
                   color: Colors.white,
@@ -146,22 +146,22 @@ class HeaderWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             left: 30,
             right: 30,
           ),
           child: Container(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               color: lightGray,
             ),
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               top: 20,
               bottom: 20,
             ),
             child: Row(
-              children: [
+              children: const [
                 Icon(
                   Icons.search,
                   color: Colors.grey,
@@ -189,7 +189,7 @@ class AttractionListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        padding: EdgeInsets.only(left: 10),
+        padding: const EdgeInsets.only(left: 10),
         itemCount: attractions.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
@@ -202,7 +202,7 @@ class AttractionListView extends StatelessWidget {
 }
 
 class AttractionCard extends StatelessWidget {
-  AttractionCard({this.attractionModel});
+  AttractionCard({this.attractionModel, super.key});
 
   AttractionModel? attractionModel;
 
@@ -217,7 +217,7 @@ class AttractionCard extends StatelessWidget {
       },
       child: Container(
         width: 180,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25),
           child: Stack(
@@ -254,13 +254,13 @@ class AttractionCard extends StatelessWidget {
                       children: [
                         Text(
                           attractionModel!.name!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           attractionModel!.location!,
                           style: TextStyle(color: mainYellow),
@@ -284,13 +284,13 @@ class BottomBarWidget extends StatefulWidget {
 }
 
 class BottomBarWidgetState extends State<BottomBarWidget> {
-  List<BottomBarModel> _bottomBarItems = bottomBarListItems;
+  final List<BottomBarModel> _bottomBarItems = bottomBarListItems;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 20, bottom: 20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.only(top: 20, bottom: 20),
+      padding: const EdgeInsets.all(20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
