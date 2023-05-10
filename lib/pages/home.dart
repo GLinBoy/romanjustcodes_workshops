@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'layout_part1/splash/splash.dart' as sp_pt1;
 import 'layout_part2/splash/splash.dart' as sp_pt2;
+import 'layout_part3/splash/splash.dart' as sp_pt3;
 
 final List<PageItem> pageItems = [
   PageItem(label: 'Layout Pt.1', page: const sp_pt1.SplashPage()),
   PageItem(label: 'Layout Pt.2', page: sp_pt2.SplashPage()),
+  PageItem(label: 'Splash', page: sp_pt3.SplashPage()),
 ];
 
 class HomeScreen extends StatelessWidget {
