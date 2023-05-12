@@ -44,6 +44,11 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: Colors.white),
+        elevation: 0,
+      ),
       backgroundColor: mainThemeColor,
       body: Center(
         child: Text('Hello Paradise'),
