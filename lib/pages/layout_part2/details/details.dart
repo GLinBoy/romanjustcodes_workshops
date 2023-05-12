@@ -14,7 +14,7 @@ class DetailsPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(selectedModel!.imgPath!),
+                image: AssetImage(selectedModel!.imgPath!),
                 fit: BoxFit.cover,
               ),
             ),
