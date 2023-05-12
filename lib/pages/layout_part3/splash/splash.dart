@@ -48,6 +48,19 @@ class ListPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(color: Colors.white),
         elevation: 0,
+        title: Icon(
+          Icons.pool,
+          color: Colors.white,
+        ),
+        actions: [
+          Container(
+            margin: EdgeInsets.only(right: 15),
+            child: Icon(
+              Icons.notifications,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       backgroundColor: mainThemeColor,
       body: Center(
