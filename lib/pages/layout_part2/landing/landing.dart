@@ -8,25 +8,25 @@ Color lightGray = const Color(0xFF3B3B3B);
 
 final List<AttractionModel> attractions = [
   AttractionModel(
-      imgPath: 'images/layout_part1/pexels-photo-260590.jpg',
+      imgPath: 'images/layout_part2/pexels-photo-260590.jpeg',
       name: 'Golden Gate Bridge',
       location: 'San Francisco, CA',
       description:
           'The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean.'),
   AttractionModel(
-      imgPath: 'images/layout_part1/pexels-photo-5627275.jpg',
+      imgPath: 'images/layout_part2/pexels-photo-5627275.jpeg',
       name: 'Brooklyn Bridge',
       location: 'Brooklyn, NY',
       description:
           'The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean.'),
   AttractionModel(
-      imgPath: 'images/layout_part1/pexels-photo-5241381.jpg',
+      imgPath: 'images/layout_part2/pexels-photo-5241381.jpeg',
       name: 'London Bridge',
       location: 'London, UK',
       description:
           'The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide strait connecting San Francisco Bay and the Pacific Ocean.'),
   AttractionModel(
-      imgPath: 'images/layout_part1/pexels-photo-1680247.jpg',
+      imgPath: 'images/layout_part2/pexels-photo-1680247.jpeg',
       name: 'Harbour Bridge',
       location: 'Sydney, AU',
       description:
