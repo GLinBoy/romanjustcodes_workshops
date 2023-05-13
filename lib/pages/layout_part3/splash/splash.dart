@@ -148,7 +148,48 @@ class AttractionCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(),
+              Container(
+                height: 150,
+                padding: EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          attraction!.name!,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.pin_drop,
+                              color: Colors.grey.withOpacity(0.7),
+                              size: 12,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              attraction!.location!,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey.withOpacity(0.7),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ],
