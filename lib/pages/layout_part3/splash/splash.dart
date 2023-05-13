@@ -63,8 +63,14 @@ class ListPage extends StatelessWidget {
         ],
       ),
       backgroundColor: mainThemeColor,
-      body: Center(
-        child: Text('Hello Paradise'),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50),
+            topRight: Radius.circular(50),
+          ),
+        ),
       ),
     );
   }
