@@ -115,7 +115,7 @@ class ListPage extends StatelessWidget {
                 itemCount: attractionsList.length,
                 itemBuilder: (context, index) {
                   Attraction attr = attractionsList[index];
-                  return Text(attr.name!);
+                  return AttractionCard(attraction: attr);
                 },
               ),
             ),
@@ -133,7 +133,27 @@ class AttractionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      height: 300,
+      child: Stack(
+        children: [
+          Column(
+            children: [
+              Container(
+                height: 150,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(attraction!.imgPath!),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Container(),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
