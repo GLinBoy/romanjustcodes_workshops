@@ -216,6 +216,30 @@ class AttractionCard extends StatelessWidget {
               ),
             ],
           ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              child: Icon(
+                Icons.favorite,
+                color: Colors.white,
+                size: 15,
+              ),
+              margin: EdgeInsets.only(right: 10),
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: mainThemeColor,
+                borderRadius: BorderRadius.circular(40),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 10,
+                    color: mainThemeColor.withOpacity(0.5),
+                    offset: Offset.zero,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
