@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:romanjustcodes_workshops/pages/layout_part2/landing/landing.dart';
 
 const mainThemeColor = Color(0xFF272D8D);
 
@@ -105,6 +106,20 @@ class ListPage extends StatelessWidget {
             topLeft: Radius.circular(50),
             topRight: Radius.circular(50),
           ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: attractionsList.length,
+                itemBuilder: (context, index) {
+                  Attraction attr = attractionsList[index];
+                  return Text(attr.name!);
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
