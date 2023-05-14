@@ -34,6 +34,8 @@ final List<Attraction> attractionsList = [
 ];
 
 class SplashPage extends StatelessWidget {
+  const SplashPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     Future.delayed(
