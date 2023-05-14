@@ -159,7 +159,7 @@ class AttractionCard extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage(attraction!.imgPath!),
+                        image: AssetImage(attraction!.imgPath!),
                         fit: BoxFit.cover,
                       ),
                     ),
