@@ -134,7 +134,7 @@ class ListPage extends StatelessWidget {
 class AttractionCard extends StatelessWidget {
   Attraction? attraction;
 
-  AttractionCard({this.attraction});
+  AttractionCard({this.attraction, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -271,7 +271,7 @@ class AttractionCard extends StatelessWidget {
 class RatingWidget extends StatelessWidget {
   int? rating;
 
-  RatingWidget({this.rating});
+  RatingWidget({this.rating, super.key});
 
   @override
   Widget build(BuildContext context) {
