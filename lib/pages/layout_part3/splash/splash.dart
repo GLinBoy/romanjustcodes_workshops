@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:romanjustcodes_workshops/pages/layout_part2/landing/landing.dart';
 
 const mainThemeColor = Color(0xFF272D8D);
 
