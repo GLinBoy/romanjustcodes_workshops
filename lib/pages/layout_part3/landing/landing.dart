@@ -56,10 +56,18 @@ class LandingPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
+              LandingSearchBar(),
             ],
           ),
         ],
       ),
     );
+  }
+}
+
+class LandingSearchBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
