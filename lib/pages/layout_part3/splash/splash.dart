@@ -33,6 +33,15 @@ final List<Attraction> attractionsList = [
       location: 'Tallaboa, PR'),
 ];
 
+final List<BottomBarItem> barItemsList = [
+  BottomBarItem(label: 'Home', isSelected: true, icon: Icons.home),
+  BottomBarItem(label: 'Account', isSelected: false, icon: Icons.person),
+  BottomBarItem(
+      label: 'Bookings', isSelected: false, icon: Icons.pending_actions),
+  BottomBarItem(label: 'Payments', isSelected: false, icon: Icons.payments),
+  BottomBarItem(label: 'More', isSelected: false, icon: Icons.more_horiz),
+];
+
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
@@ -123,6 +132,7 @@ class ListPage extends StatelessWidget {
                   },
                 ),
               ),
+              BottomBarWidget(),
             ],
           ),
         ),
@@ -298,6 +308,51 @@ class RatingWidget extends StatelessWidget {
   }
 }
 
+class BottomBarWidget extends StatefulWidget {
+  @override
+  BottomBarWidgetState createState() => BottomBarWidgetState();
+}
+
+class BottomBarWidgetState extends State<BottomBarWidget> {
+  List<BottomBarItem> barItems = barItemsList;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(
+        top: 20,
+        left: 20,
+        right: 20,
+        bottom: 15,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: List.generate(
+          barItems.length,
+          (index) {
+            var barItem = barItems[index];
+            return Column(
+              children: [
+                Icon(
+                  barItem.icon,
+                  color: barItem.isSelected! ? mainThemeColor : Colors.grey,
+                ),
+                Text(
+                  barItem.label!,
+                  style: TextStyle(
+                    color: (barItem.isSelected! ? mainThemeColor : Colors.grey),
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
 class Attraction {
   String? imgPath;
   String? name;
@@ -313,4 +368,12 @@ class Attraction {
       this.price,
       this.location,
       this.rating});
+}
+
+class BottomBarItem {
+  String? label;
+  bool? isSelected;
+  IconData? icon;
+
+  BottomBarItem({this.label, this.isSelected, this.icon});
 }
