@@ -331,20 +331,24 @@ class BottomBarWidgetState extends State<BottomBarWidget> {
           barItems.length,
           (index) {
             var barItem = barItems[index];
-            return Column(
-              children: [
-                Icon(
-                  barItem.icon,
-                  color: barItem.isSelected! ? mainThemeColor : Colors.grey,
-                ),
-                Text(
-                  barItem.label!,
-                  style: TextStyle(
-                    color: (barItem.isSelected! ? mainThemeColor : Colors.grey),
-                    fontSize: 11,
+            return GestureDetector(
+              onTap: () {},
+              child: Column(
+                children: [
+                  Icon(
+                    barItem.icon,
+                    color: barItem.isSelected! ? mainThemeColor : Colors.grey,
                   ),
-                ),
-              ],
+                  Text(
+                    barItem.label!,
+                    style: TextStyle(
+                      color:
+                          (barItem.isSelected! ? mainThemeColor : Colors.grey),
+                      fontSize: 11,
+                    ),
+                  ),
+                ],
+              ),
             );
           },
         ),
