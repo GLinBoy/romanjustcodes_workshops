@@ -332,7 +332,13 @@ class BottomBarWidgetState extends State<BottomBarWidget> {
           (index) {
             var barItem = barItems[index];
             return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                setState(() {
+                  barItems.forEach((element) {
+                    element.isSelected = barItem == element;
+                  });
+                });
+              },
               child: Column(
                 children: [
                   Icon(
