@@ -310,6 +310,8 @@ class RatingWidget extends StatelessWidget {
 }
 
 class BottomBarWidget extends StatefulWidget {
+  const BottomBarWidget({super.key});
+
   @override
   BottomBarWidgetState createState() => BottomBarWidgetState();
 }
