@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:romanjustcodes_workshops/pages/layout_part3/landing/landing.dart';
 
 const mainThemeColor = Color(0xFF272D8D);
 
@@ -52,7 +53,7 @@ class SplashPage extends StatelessWidget {
       () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => ListPage(),
+            builder: (context) => LandingPage(),
           ),
         );
       },
