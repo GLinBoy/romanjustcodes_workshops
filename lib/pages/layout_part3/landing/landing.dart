@@ -5,6 +5,17 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Container(
+          padding: EdgeInsets.all(20),
+          alignment: Alignment.bottomLeft,
+          child: Icon(
+            Icons.pool,
+            color: mainThemeColor,
+            size: 80,
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           Container(
@@ -17,6 +28,11 @@ class LandingPage extends StatelessWidget {
           ),
           Container(
             color: mainThemeColor.withOpacity(0.7),
+          ),
+          AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            iconTheme: IconThemeData(color: Colors.white),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
