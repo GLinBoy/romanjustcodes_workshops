@@ -64,7 +64,7 @@ class SplashPage extends StatelessWidget {
         Container(
           color: mainThemeColor,
         ),
-        Align(
+        const Align(
           alignment: Alignment.center,
           child: Icon(
             Icons.pool,
@@ -91,16 +91,16 @@ class ListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         elevation: 0,
-        title: Icon(
+        title: const Icon(
           Icons.pool,
           color: Colors.white,
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 15),
-            child: Icon(
+            margin: const EdgeInsets.only(right: 15),
+            child: const Icon(
               Icons.notifications,
               color: Colors.white,
             ),
@@ -109,7 +109,7 @@ class ListPage extends StatelessWidget {
       ),
       backgroundColor: mainThemeColor,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50),
@@ -117,7 +117,7 @@ class ListPage extends StatelessWidget {
           ),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(50),
             topRight: Radius.circular(50),
           ),
@@ -150,7 +150,7 @@ class AttractionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(40),
@@ -181,7 +181,7 @@ class AttractionCard extends StatelessWidget {
                   ),
                   Container(
                     height: 150,
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -190,13 +190,13 @@ class AttractionCard extends StatelessWidget {
                           children: [
                             Text(
                               attraction!.name!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(width: 5),
+                            const SizedBox(width: 5),
                             Row(
                               children: [
                                 Icon(
@@ -204,7 +204,7 @@ class AttractionCard extends StatelessWidget {
                                   color: Colors.grey.withOpacity(0.7),
                                   size: 12,
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Text(
                                   attraction!.location!,
                                   style: TextStyle(
@@ -215,7 +215,7 @@ class AttractionCard extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(width: 5),
+                            const SizedBox(width: 5),
                             RatingWidget(rating: attraction!.rating!),
                           ],
                         ),
@@ -225,13 +225,13 @@ class AttractionCard extends StatelessWidget {
                           children: [
                             Text(
                               '\$${attraction!.price!.toStringAsFixed(2)}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             Text(
                               'Per Night',
                               style: TextStyle(
@@ -250,12 +250,7 @@ class AttractionCard extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Container(
-                  child: Icon(
-                    Icons.favorite,
-                    color: Colors.white,
-                    size: 15,
-                  ),
-                  margin: EdgeInsets.only(right: 10),
+                  margin: const EdgeInsets.only(right: 10),
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
@@ -268,6 +263,11 @@ class AttractionCard extends StatelessWidget {
                         offset: Offset.zero,
                       ),
                     ],
+                  ),
+                  child: const Icon(
+                    Icons.favorite,
+                    color: Colors.white,
+                    size: 15,
                   ),
                 ),
               ),
@@ -296,7 +296,7 @@ class RatingWidget extends StatelessWidget {
             );
           }),
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Text(
           '${this.rating!}/5 Reviews',
           style: TextStyle(
@@ -320,7 +320,7 @@ class BottomBarWidgetState extends State<BottomBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 20,
         left: 20,
         right: 20,
