@@ -7,9 +7,9 @@ class LandingPage extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           alignment: Alignment.bottomLeft,
-          child: Icon(
+          child: const Icon(
             Icons.pool,
             color: mainThemeColor,
             size: 80,
@@ -19,7 +19,7 @@ class LandingPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage('<BG_IMAGE_PATH>'),
                 fit: BoxFit.cover,
@@ -32,13 +32,13 @@ class LandingPage extends StatelessWidget {
           AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
-            iconTheme: IconThemeData(color: Colors.white),
+            iconTheme: const IconThemeData(color: Colors.white),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              const Text(
                 'Paradise',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -47,13 +47,13 @@ class LandingPage extends StatelessWidget {
                   fontSize: 30,
                 ),
               ),
-              SizedBox(height: 60),
-              Icon(
+              const SizedBox(height: 60),
+              const Icon(
                 Icons.pool,
                 color: Colors.white,
                 size: 80,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 'Choose location to'.toUpperCase(),
                 textAlign: TextAlign.center,
@@ -61,8 +61,8 @@ class LandingPage extends StatelessWidget {
                   color: Colors.white.withOpacity(0.5),
                 ),
               ),
-              SizedBox(height: 5),
-              Text(
+              const SizedBox(height: 5),
+              const Text(
                 'Find a Hotel',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -71,7 +71,7 @@ class LandingPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               LandingSearchBar(),
             ],
           ),
@@ -85,8 +85,8 @@ class LandingSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 30, right: 30),
-      padding: EdgeInsets.only(
+      margin: const EdgeInsets.only(left: 30, right: 30),
+      padding: const EdgeInsets.only(
         top: 5,
         bottom: 5,
         left: 20,
@@ -99,26 +99,27 @@ class LandingSearchBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
+          const Text(
             'Search hotel',
             style: TextStyle(color: Colors.grey),
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => ListPage()));
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const ListPage()),
+              );
             },
             child: Container(
               width: 30,
               height: 30,
-              child: Icon(
-                Icons.search,
-                color: Colors.white,
-                size: 15,
-              ),
               decoration: BoxDecoration(
                 color: mainThemeColor,
                 borderRadius: BorderRadius.circular(25),
+              ),
+              child: const Icon(
+                Icons.search,
+                color: Colors.white,
+                size: 15,
               ),
             ),
           ),
