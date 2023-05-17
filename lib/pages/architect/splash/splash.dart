@@ -27,6 +27,17 @@ class SplashPage extends StatelessWidget {
   }
 }
 
+class DonutShopMain extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text('Hello, Donut Shop!'),
+      ),
+    );
+  }
+}
+
 class Utils {
   static const Color mainColor = Color(0xFFFF0F7E);
   static const Color mainDark = Color(0xFF980346);
