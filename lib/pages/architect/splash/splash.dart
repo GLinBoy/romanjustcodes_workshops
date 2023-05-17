@@ -72,6 +72,9 @@ class DonutShopMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: DonutSideMenu(),
+      ),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Utils.mainDark),
         backgroundColor: Colors.transparent,
@@ -84,6 +87,33 @@ class DonutShopMain extends StatelessWidget {
       ),
       body: Center(
         child: Text('Hello, Donut Shop!'),
+      ),
+    );
+  }
+}
+
+class DonutSideMenu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Utils.mainDark,
+      padding: EdgeInsets.all(40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 40),
+            child: Image.network(
+              Utils.donutLogoWhiteNoText,
+              width: 100,
+            ),
+          ),
+          Image.network(
+            Utils.donutLogoWhiteText,
+            width: 150,
+          ),
+        ],
       ),
     );
   }
