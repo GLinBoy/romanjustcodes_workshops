@@ -1,6 +1,33 @@
 import 'package:flutter/material.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
+  @override
+  SplashPageState createState() => SplashPageState();
+}
+
+class SplashPageState extends State<SplashPage>
+    with SingleTickerProviderStateMixin {
+  AnimationController? donutController;
+  Animation<double>? rotationAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    donutController = AnimationController(
+      duration: const Duration(seconds: 5),
+      vsync: this,
+    )..repeat();
+    rotationAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(
+      CurvedAnimation(
+        parent: donutController!,
+        curve: Curves.linear,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
@@ -15,10 +42,13 @@ class SplashPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.network(
-              Utils.donutLogoWhiteNoText,
-              width: 100,
-              height: 100,
+            RotationTransition(
+              turns: rotationAnimation!,
+              child: Image.network(
+                Utils.donutLogoWhiteNoText,
+                width: 100,
+                height: 100,
+              ),
             ),
             Image.network(
               Utils.donutLogoWhiteText,
@@ -29,6 +59,12 @@ class SplashPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    donutController!.dispose();
+    super.dispose();
   }
 }
 
