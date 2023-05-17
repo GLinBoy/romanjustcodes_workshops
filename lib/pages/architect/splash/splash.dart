@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => DonutShopMain()),
+      );
+    });
     return Scaffold(
       backgroundColor: Utils.mainColor,
       body: Center(
