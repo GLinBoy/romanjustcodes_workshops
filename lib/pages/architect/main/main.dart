@@ -87,6 +87,15 @@ class _DonutPagerState extends State<DonutPager> {
   }
 }
 
+class PageViewIndicator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [],
+    );
+  }
+}
+
 class DonutPage {
   String? imgUrl;
   String? logoImgUrl;
