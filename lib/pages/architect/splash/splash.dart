@@ -32,9 +32,7 @@ class SplashPageState extends State<SplashPage>
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => DonutShopMain()),
-      );
+      Utils.mainAppNav.currentState!.pushReplacementNamed('/main');
     });
     return Scaffold(
       backgroundColor: Utils.mainColor,
@@ -89,7 +87,31 @@ class DonutShopMain extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Container(),
+            child: Navigator(
+              key: Utils.mainListNav,
+              initialRoute: '/main',
+              onGenerateRoute: (RouteSettings settings) {
+                Widget page;
+                switch (settings.name) {
+                  case '/main':
+                    page = Center(child: Text('main'));
+                    break;
+                  case '/favorites':
+                    page = Center(child: Text('favorites'));
+                    break;
+                  case '/shoppingcart':
+                    page = Center(child: Text('shopping cart'));
+                    break;
+                  default:
+                    page = Center(child: Text('main'));
+                    break;
+                }
+                return PageRouteBuilder(
+                  pageBuilder: (_, __, ___) => page,
+                  transitionDuration: const Duration(seconds: 0),
+                );
+              },
+            ),
           ),
           DonutBottomBar(),
         ],
@@ -155,7 +177,7 @@ class DonutBottomBar extends StatelessWidget {
                     : Utils.mainColor,
               ),
               onPressed: () {
-                bottomBarSelectionService.setTabSelection('favorite');
+                bottomBarSelectionService.setTabSelection('favorites');
               },
             ),
             IconButton(
@@ -180,12 +202,16 @@ class DonutBottomBarSelectionService extends ChangeNotifier {
   String? tabSelection = 'main';
 
   void setTabSelection(String selection) {
+    Utils.mainListNav.currentState!.pushReplacementNamed('/' + selection);
     tabSelection = selection;
     notifyListeners();
   }
 }
 
 class Utils {
+  static GlobalKey<NavigatorState> mainListNav = GlobalKey();
+  static GlobalKey<NavigatorState> mainAppNav = GlobalKey();
+
   static const Color mainColor = Color(0xFFFF0F7E);
   static const Color mainDark = Color(0xFF980346);
   static const String donutLogoWhiteNoText =

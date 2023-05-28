@@ -19,7 +19,12 @@ final List<PageItem> pageItems = [
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: sp_architect.SplashPage(),
+        initialRoute: '/',
+        navigatorKey: sp_architect.Utils.mainAppNav,
+        routes: {
+          '/': (context) => sp_architect.SplashPage(),
+          '/main': (context) => sp_architect.DonutShopMain(),
+        },
       ),
     ),
   ),
