@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/architect/main/main.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -94,7 +95,7 @@ class DonutShopMain extends StatelessWidget {
                 Widget page;
                 switch (settings.name) {
                   case '/main':
-                    page = Center(child: Text('main'));
+                    page = DonutMainPage();
                     break;
                   case '/favorites':
                     page = Center(child: Text('favorites'));
