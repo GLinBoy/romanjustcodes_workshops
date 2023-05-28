@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -90,7 +91,7 @@ class DonutShopMain extends StatelessWidget {
           Expanded(
             child: Container(),
           ),
-          Container(),
+          DonutBottomBar(),
         ],
       ),
     );
@@ -121,6 +122,66 @@ class DonutSideMenu extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class DonutBottomBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(30),
+      child: Consumer<DonutBottomBarSelectionService>(
+          builder: (context, bottomBarSelectionService, child) {
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.trip_origin,
+                color: bottomBarSelectionService.tabSelection == 'main'
+                    ? Utils.mainDark
+                    : Utils.mainColor,
+              ),
+              onPressed: () {
+                bottomBarSelectionService.setTabSelection('main');
+              },
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.favorite,
+                color: bottomBarSelectionService.tabSelection == 'favorite'
+                    ? Utils.mainDark
+                    : Utils.mainColor,
+              ),
+              onPressed: () {
+                bottomBarSelectionService.setTabSelection('favorite');
+              },
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.shopping_cart,
+                color: bottomBarSelectionService.tabSelection == 'shoppingcart'
+                    ? Utils.mainDark
+                    : Utils.mainColor,
+              ),
+              onPressed: () {
+                bottomBarSelectionService.setTabSelection('shoppingcart');
+              },
+            ),
+          ],
+        );
+      }),
+    );
+  }
+}
+
+class DonutBottomBarSelectionService extends ChangeNotifier {
+  String? tabSelection = 'main';
+
+  void setTabSelection(String selection) {
+    tabSelection = selection;
+    notifyListeners();
   }
 }
 
