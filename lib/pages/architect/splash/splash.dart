@@ -85,8 +85,13 @@ class DonutShopMain extends StatelessWidget {
           width: 120,
         ),
       ),
-      body: Center(
-        child: Text('Hello, Donut Shop!'),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(),
+          ),
+          Container(),
+        ],
       ),
     );
   }
