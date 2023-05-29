@@ -151,6 +151,8 @@ class DonutFilterBar extends StatelessWidget {
   }
 }
 
+class DonutService extends ChangeNotifier {}
+
 class DonutPage {
   String? imgUrl;
   String? logoImgUrl;

@@ -4,6 +4,7 @@ import 'layout_part1/splash/splash.dart' as sp_pt1;
 import 'layout_part2/splash/splash.dart' as sp_pt2;
 import 'layout_part3/splash/splash.dart' as sp_pt3;
 import 'architect/splash/splash.dart' as sp_architect;
+import 'architect/main/main.dart' as sp_architect_main;
 
 final List<PageItem> pageItems = [
   PageItem(label: 'Layout Pt.1', page: const sp_pt1.SplashPage()),
@@ -15,6 +16,9 @@ final List<PageItem> pageItems = [
       providers: [
         ChangeNotifierProvider(
           create: (_) => sp_architect.DonutBottomBarSelectionService(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => sp_architect_main.DonutService(),
         ),
       ],
       child: MaterialApp(
