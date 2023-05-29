@@ -144,6 +144,13 @@ class PageViewIndicator extends StatelessWidget {
   }
 }
 
+class DonutFilterBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 class DonutPage {
   String? imgUrl;
   String? logoImgUrl;
