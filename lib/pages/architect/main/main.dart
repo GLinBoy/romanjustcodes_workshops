@@ -225,7 +225,7 @@ class DonutService extends ChangeNotifier {
   List<DonutFilterBarItem> filterBarItems = [
     DonutFilterBarItem(id: 'classic', label: 'Classic'),
     DonutFilterBarItem(id: 'sprinkled', label: 'Sprinkled'),
-    DonutFilterBarItem(id: 'Stuffed', label: 'Stuffed'),
+    DonutFilterBarItem(id: 'stuffed', label: 'Stuffed'),
   ];
 
   String? selectedDonutType;
