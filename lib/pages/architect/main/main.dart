@@ -151,7 +151,24 @@ class DonutFilterBar extends StatelessWidget {
   }
 }
 
-class DonutService extends ChangeNotifier {}
+class DonutService extends ChangeNotifier {
+  List<DonutFilterBarItem> filterBarItems = [
+    DonutFilterBarItem(id: 'classic', label: 'Classic'),
+    DonutFilterBarItem(id: 'sprinkled', label: 'Sprinkled'),
+    DonutFilterBarItem(id: 'Stuffed', label: 'Stuffed'),
+  ];
+
+  String? selectedDonutType;
+
+  DonutService() {
+    selectedDonutType = filterBarItems.first.id;
+  }
+
+  void filteredDonutsByType(String type) {
+    selectedDonutType = type;
+    notifyListeners();
+  }
+}
 
 class DonutPage {
   String? imgUrl;
