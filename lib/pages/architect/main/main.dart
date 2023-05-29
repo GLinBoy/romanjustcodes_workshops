@@ -240,6 +240,18 @@ class DonutService extends ChangeNotifier {
   }
 }
 
+class DonutList extends StatefulWidget {
+  @override
+  State<DonutList> createState() => _DonutListState();
+}
+
+class _DonutListState extends State<DonutList> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView();
+  }
+}
+
 class DonutPage {
   String? imgUrl;
   String? logoImgUrl;
