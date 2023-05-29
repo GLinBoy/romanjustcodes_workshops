@@ -50,6 +50,11 @@ class _DonutPagerState extends State<DonutPager> {
               scrollDirection: Axis.horizontal,
               pageSnapping: true,
               controller: controller,
+              onPageChanged: (int page) {
+                setState(() {
+                  currentPage = page;
+                });
+              },
               children: List.generate(
                 pages.length,
                 (index) {
@@ -81,6 +86,11 @@ class _DonutPagerState extends State<DonutPager> {
               ),
             ),
           ),
+          PageViewIndicator(
+            controller: controller,
+            numberOfPages: pages.length,
+            currentPage: currentPage,
+          ),
         ],
       ),
     );
@@ -88,10 +98,48 @@ class _DonutPagerState extends State<DonutPager> {
 }
 
 class PageViewIndicator extends StatelessWidget {
+  PageController? controller;
+  int? numberOfPages;
+  int? currentPage;
+
+  PageViewIndicator({
+    this.controller,
+    this.numberOfPages,
+    this.currentPage,
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [],
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(
+        numberOfPages!,
+        (index) {
+          return GestureDetector(
+            onTap: () {
+              controller!.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+            },
+            child: AnimatedContainer(
+              duration: const Duration(microseconds: 250),
+              curve: Curves.easeInOut,
+              width: 15,
+              height: 15,
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: currentPage == index
+                    ? Utils.mainColor
+                    : Colors.grey.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
