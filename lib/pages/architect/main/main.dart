@@ -157,3 +157,10 @@ class DonutPage {
 
   DonutPage({this.imgUrl, this.logoImgUrl});
 }
+
+class DonutFilterBarItem {
+  String? id;
+  String? label;
+
+  DonutFilterBarItem({this.id, this.label});
+}
