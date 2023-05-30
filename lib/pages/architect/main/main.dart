@@ -9,6 +9,7 @@ class DonutMainPage extends StatelessWidget {
       children: [
         DonutPager(),
         DonutFilterBar(),
+        Expanded(child: DonutList(donuts: Utils.donuts)),
       ],
     );
   }
@@ -256,7 +257,8 @@ class _DonutListState extends State<DonutList> {
       scrollDirection: Axis.horizontal,
       itemCount: widget.donuts!.length,
       itemBuilder: (context, index) {
-        //
+        DonutModel currentDonut = widget.donuts![index];
+        return DonutCard(donutInfo: currentDonut);
       },
     );
   }
@@ -290,7 +292,37 @@ class DonutCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [],
+            children: [
+              Text(
+                '${donutInfo!.name}',
+                style: TextStyle(
+                  color: Utils.mainColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                decoration: BoxDecoration(
+                  color: Utils.mainColor,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: EdgeInsets.only(
+                  left: 10,
+                  right: 10,
+                  top: 5,
+                  bottom: 5,
+                ),
+                child: Text(
+                  '\$${donutInfo!.price!.toStringAsFixed(2)}',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
