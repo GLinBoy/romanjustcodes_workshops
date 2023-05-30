@@ -262,6 +262,13 @@ class _DonutListState extends State<DonutList> {
   }
 }
 
+class DonutCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack();
+  }
+}
+
 class DonutPage {
   String? imgUrl;
   String? logoImgUrl;
