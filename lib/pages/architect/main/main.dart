@@ -241,6 +241,10 @@ class DonutService extends ChangeNotifier {
 }
 
 class DonutList extends StatefulWidget {
+  List<DonutModel>? donuts;
+
+  DonutList({this.donuts});
+
   @override
   State<DonutList> createState() => _DonutListState();
 }
@@ -248,7 +252,13 @@ class DonutList extends StatefulWidget {
 class _DonutListState extends State<DonutList> {
   @override
   Widget build(BuildContext context) {
-    return ListView();
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: widget.donuts!.length,
+      itemBuilder: (context, index) {
+        //
+      },
+    );
   }
 }
 
