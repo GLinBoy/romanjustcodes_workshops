@@ -263,6 +263,9 @@ class _DonutListState extends State<DonutList> {
 }
 
 class DonutCard extends StatelessWidget {
+  DonutModel? donutInfo;
+  DonutCard({this.donutInfo});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
