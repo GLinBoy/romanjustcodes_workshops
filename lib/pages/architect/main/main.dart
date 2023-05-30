@@ -325,6 +325,15 @@ class DonutCard extends StatelessWidget {
             ],
           ),
         ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: Image.network(
+            donutInfo!.imgUrl!,
+            width: 150,
+            height: 150,
+            fit: BoxFit.contain,
+          ),
+        ),
       ],
     );
   }
