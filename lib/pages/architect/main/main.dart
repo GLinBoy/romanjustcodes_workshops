@@ -261,14 +261,44 @@ class DonutList extends StatefulWidget {
 }
 
 class _DonutListState extends State<DonutList> {
+  final GlobalKey<AnimatedListState> _key = GlobalKey();
+  List<DonutModel> insertedItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    var future = Future(() {});
+    for (var i = 0; i < widget.donuts!.length; i++) {
+      future = future.then((_) {
+        return Future.delayed(const Duration(microseconds: 125), () {
+          insertedItems.add(widget.donuts![i]);
+          _key.currentState!.insertItem(i);
+        });
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return AnimatedList(
+      key: _key,
       scrollDirection: Axis.horizontal,
-      itemCount: widget.donuts!.length,
-      itemBuilder: (context, index) {
+      initialItemCount: insertedItems.length,
+      itemBuilder: (context, index, animation) {
         DonutModel currentDonut = widget.donuts![index];
-        return DonutCard(donutInfo: currentDonut);
+        return SlideTransition(
+          position: Tween(
+            begin: const Offset(0.2, 0.0),
+            end: const Offset(0.0, 0.0),
+          ).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeInOut)),
+          child: FadeTransition(
+            opacity: Tween(begin: 0.0, end: 1.0).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+            ),
+            child: DonutCard(donutInfo: currentDonut),
+          ),
+        );
       },
     );
   }
