@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/architect/details/details.dart';
 import 'layout_part1/splash/splash.dart' as sp_pt1;
 import 'layout_part2/splash/splash.dart' as sp_pt2;
 import 'layout_part3/splash/splash.dart' as sp_pt3;
@@ -26,7 +27,8 @@ final List<PageItem> pageItems = [
         initialRoute: '/',
         navigatorKey: sp_architect.Utils.mainAppNav,
         routes: {
-          '/': (context) => sp_architect.SplashPage(),
+          // '/': (context) => sp_architect.SplashPage(),
+          '/': (context) => DonutShopDetails(),
           '/main': (context) => sp_architect.DonutShopMain(),
         },
       ),
