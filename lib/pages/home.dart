@@ -27,9 +27,9 @@ final List<PageItem> pageItems = [
         initialRoute: '/',
         navigatorKey: sp_architect.Utils.mainAppNav,
         routes: {
-          // '/': (context) => sp_architect.SplashPage(),
-          '/': (context) => DonutShopDetails(),
+          '/': (context) => sp_architect.SplashPage(),
           '/main': (context) => sp_architect.DonutShopMain(),
+          '/details': (context) => DonutShopDetails(),
         },
       ),
     ),
