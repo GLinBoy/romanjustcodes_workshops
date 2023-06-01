@@ -43,7 +43,81 @@ class _DonutShopDetailsState extends State<DonutShopDetails> {
             ),
           ),
           Expanded(
-            child: Column(),
+            child: Padding(
+              padding: const EdgeInsets.all(30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          '${selectedDonut!.name!}',
+                          style: TextStyle(
+                            color: Utils.mainDark,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 50),
+                      IconButton(
+                        icon: Icon(Icons.favorite_border_outlined),
+                        color: Utils.mainDark,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    padding: EdgeInsets.only(
+                      top: 10,
+                      bottom: 10,
+                      left: 20,
+                      right: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Utils.mainDark,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      '\$${selectedDonut!.price!.toStringAsFixed(2)}',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text('${selectedDonut!.description!}'),
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(
+                      left: 20,
+                      right: 20,
+                      top: 10,
+                      bottom: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Utils.mainDark.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.shopping_cart, color: Utils.mainDark),
+                        SizedBox(width: 20),
+                        Text(
+                          'Add To Cart',
+                          style: TextStyle(color: Utils.mainDark),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
