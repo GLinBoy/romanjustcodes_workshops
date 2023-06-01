@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/architect/main/main.dart';
 import 'package:romanjustcodes_workshops/pages/architect/splash/splash.dart';
 
@@ -37,7 +38,9 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
 
   @override
   Widget build(BuildContext context) {
-    selectedDonut = Utils.donuts[0];
+    DonutService donutService =
+        Provider.of<DonutService>(context, listen: false);
+    selectedDonut = donutService.getSelectedDonut();
 
     return Scaffold(
       appBar: AppBar(
