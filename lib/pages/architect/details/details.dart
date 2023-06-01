@@ -19,6 +19,14 @@ class _DonutShopDetailsState extends State<DonutShopDetails> {
           child: Image.network(Utils.donutLogoRedText),
         ),
       ),
+      body: Column(
+        children: [
+          Container(),
+          Expanded(
+            child: Column(),
+          ),
+        ],
+      ),
     );
   }
 }
