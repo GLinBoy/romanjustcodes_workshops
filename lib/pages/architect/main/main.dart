@@ -237,6 +237,16 @@ class DonutService extends ChangeNotifier {
 
   String? selectedDonutType;
   List<DonutModel> filteredDonuts = [];
+  late DonutModel selectedDonut;
+
+  DonutModel getSelectedDonut() {
+    return selectedDonut;
+  }
+
+  void onDonutSelected(DonutModel donut) {
+    selectedDonut = donut;
+    Utils.mainAppNav.currentState!.pushNamed('/details');
+  }
 
   DonutService() {
     selectedDonutType = filterBarItems.first.id;
