@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/architect/cart/cart_service.dart';
 import 'package:romanjustcodes_workshops/pages/architect/main/main.dart';
 import 'package:romanjustcodes_workshops/pages/architect/splash/splash.dart';
 
@@ -121,30 +122,59 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
                   ),
                   SizedBox(height: 20),
                   Text('${selectedDonut!.description!}'),
-                  Container(
-                    margin: EdgeInsets.only(top: 20),
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.only(
-                      left: 20,
-                      right: 20,
-                      top: 10,
-                      bottom: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Utils.mainDark.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.shopping_cart, color: Utils.mainDark),
-                        SizedBox(width: 20),
-                        Text(
-                          'Add To Cart',
-                          style: TextStyle(color: Utils.mainDark),
+                  Consumer<DonutShoppingCartService>(
+                    builder: (context, cartService, child) {
+                      if (!cartService.isDonutInCart(selectedDonut!)) {
+                        return GestureDetector(
+                          onTap: () {
+                            cartService.addToCart(selectedDonut!);
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(top: 20),
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.only(
+                              left: 20,
+                              right: 20,
+                              top: 10,
+                              bottom: 10,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Utils.mainDark.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.shopping_cart,
+                                    color: Utils.mainDark),
+                                SizedBox(width: 20),
+                                Text(
+                                  'Add To Cart',
+                                  style: TextStyle(color: Utils.mainDark),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                      return Padding(
+                        padding: EdgeInsets.only(top: 30, bottom: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.check_rounded, color: Utils.mainDark),
+                            SizedBox(width: 20),
+                            Text(
+                              'Added to Cart',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Utils.mainDark,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                 ],
               ),
