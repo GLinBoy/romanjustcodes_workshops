@@ -18,4 +18,12 @@ class DonutShoppingCartService extends ChangeNotifier {
     cartDonuts.clear();
     notifyListeners();
   }
+
+  double getTotal() {
+    double cartTotal = 0.0;
+    cartDonuts.forEach((element) {
+      cartTotal += element.price!;
+    });
+    return cartTotal;
+  }
 }
