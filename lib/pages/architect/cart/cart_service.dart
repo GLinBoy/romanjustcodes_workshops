@@ -13,4 +13,9 @@ class DonutShoppingCartService extends ChangeNotifier {
     cartDonuts.remove((d) => d.name == donut.name);
     notifyListeners();
   }
+
+  void clearCart() {
+    cartDonuts.clear();
+    notifyListeners();
+  }
 }
