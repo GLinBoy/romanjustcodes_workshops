@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/architect/badge/badge.dart';
 import 'package:romanjustcodes_workshops/pages/architect/cart/cart_service.dart';
 import 'package:romanjustcodes_workshops/pages/architect/main/main.dart';
 import 'package:romanjustcodes_workshops/pages/architect/splash/splash.dart';
@@ -52,6 +53,9 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
           width: 120,
           child: Image.network(Utils.donutLogoRedText),
         ),
+        actions: [
+          DonutShoppingCartBadge(),
+        ],
       ),
       body: Column(
         children: [
