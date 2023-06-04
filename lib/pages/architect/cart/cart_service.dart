@@ -26,4 +26,8 @@ class DonutShoppingCartService extends ChangeNotifier {
     });
     return cartTotal;
   }
+
+  bool isDonutInCart(DonutModel donut) {
+    return cartDonuts.any((d) => d.name == donut.name);
+  }
 }
