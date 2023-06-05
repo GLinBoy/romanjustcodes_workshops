@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/architect/cart/cart_service.dart';
 import 'package:romanjustcodes_workshops/pages/architect/splash/splash.dart';
 
 class DonutShoppingCartPage extends StatefulWidget {
@@ -39,6 +41,36 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
               ),
             ),
             child: Image.network(Utils.donutTitleMyDonuts, width: 170),
+          ),
+          Expanded(
+            child: Consumer<DonutShoppingCartService>(
+              builder: (context, cartService, child) {
+                if (cartService.cartDonuts.isEmpty) {
+                  return Center(
+                    child: SizedBox(
+                      width: 200,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.shopping_cart,
+                            color: Colors.grey[300],
+                            size: 50,
+                          ),
+                          SizedBox(height: 20),
+                          Text(
+                            'You don\'t have any item on your cart yet!',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Colors.grey),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                }
+                return Container();
+              },
+            ),
           ),
         ],
       ),
