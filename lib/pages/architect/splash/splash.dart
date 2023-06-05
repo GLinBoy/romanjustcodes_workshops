@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/architect/cart/cart_page..dart';
 import 'package:romanjustcodes_workshops/pages/architect/main/main.dart';
 
 class SplashPage extends StatefulWidget {
@@ -101,7 +102,7 @@ class DonutShopMain extends StatelessWidget {
                     page = Center(child: Text('favorites'));
                     break;
                   case '/shoppingcart':
-                    page = Center(child: Text('shopping cart'));
+                    page = DonutShoppingCartPage();
                     break;
                   default:
                     page = Center(child: Text('main'));
