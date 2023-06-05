@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/architect/cart/cart_service.dart';
+import 'package:romanjustcodes_workshops/pages/architect/cart/shopping_list.dart';
 import 'package:romanjustcodes_workshops/pages/architect/splash/splash.dart';
 
 class DonutShoppingCartPage extends StatefulWidget {
@@ -68,7 +69,7 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                     ),
                   );
                 }
-                return Container();
+                return DonutShoppingList(donutCart: cartService.cartDonuts);
               },
             ),
           ),
