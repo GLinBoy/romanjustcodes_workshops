@@ -133,7 +133,7 @@ class ListPage extends StatelessWidget {
                   },
                 ),
               ),
-              BottomBarWidget(),
+              const BottomBarWidget(),
             ],
           ),
         ),
