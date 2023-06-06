@@ -99,13 +99,13 @@ class DonutShopMain extends StatelessWidget {
                     page = DonutMainPage();
                     break;
                   case '/favorites':
-                    page = Center(child: Text('favorites'));
+                    page = const Center(child: Text('favorites'));
                     break;
                   case '/shoppingcart':
                     page = DonutShoppingCartPage();
                     break;
                   default:
-                    page = Center(child: Text('main'));
+                    page = const Center(child: Text('main'));
                     break;
                 }
                 return PageRouteBuilder(
@@ -127,13 +127,13 @@ class DonutSideMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Utils.mainDark,
-      padding: EdgeInsets.all(40),
+      padding: const EdgeInsets.all(40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 40),
+            margin: const EdgeInsets.only(top: 40),
             child: Image.network(
               Utils.donutLogoWhiteNoText,
               width: 100,
@@ -153,7 +153,7 @@ class DonutBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       child: Consumer<DonutBottomBarSelectionService>(
           builder: (context, bottomBarSelectionService, child) {
         return Row(
