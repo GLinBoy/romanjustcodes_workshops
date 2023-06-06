@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:romanjustcodes_workshops/pages/layout_part3/splash/splash.dart';
 
 class LandingPage extends StatelessWidget {
+  const LandingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
