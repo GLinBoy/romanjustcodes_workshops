@@ -74,7 +74,7 @@ class LandingPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              LandingSearchBar(),
+              const LandingSearchBar(),
             ],
           ),
         ],
