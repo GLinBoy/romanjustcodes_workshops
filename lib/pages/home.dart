@@ -9,8 +9,8 @@ import 'architect/main/main.dart' as sp_architect_main;
 
 final List<PageItem> pageItems = [
   PageItem(label: 'Layout Pt.1', page: const sp_pt1.SplashPage()),
-  PageItem(label: 'Layout Pt.2', page: sp_pt2.SplashPage()),
-  PageItem(label: 'Layout Pt.3', page: sp_pt3.SplashPage()),
+  PageItem(label: 'Layout Pt.2', page: const sp_pt2.SplashPage()),
+  PageItem(label: 'Layout Pt.3', page: const sp_pt3.SplashPage()),
   PageItem(
     label: 'Architect',
     page: MultiProvider(
