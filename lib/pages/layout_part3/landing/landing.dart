@@ -82,6 +82,8 @@ class LandingPage extends StatelessWidget {
 }
 
 class LandingSearchBar extends StatelessWidget {
+  const LandingSearchBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
