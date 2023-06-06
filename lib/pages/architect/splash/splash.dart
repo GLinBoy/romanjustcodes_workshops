@@ -70,6 +70,8 @@ class SplashPageState extends State<SplashPage>
 }
 
 class DonutShopMain extends StatelessWidget {
+  const DonutShopMain({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
