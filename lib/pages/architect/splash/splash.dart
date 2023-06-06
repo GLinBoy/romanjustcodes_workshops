@@ -73,7 +73,7 @@ class DonutShopMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
+      drawer: const Drawer(
         child: DonutSideMenu(),
       ),
       appBar: AppBar(
