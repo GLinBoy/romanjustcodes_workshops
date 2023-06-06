@@ -123,6 +123,8 @@ class DonutShopMain extends StatelessWidget {
 }
 
 class DonutSideMenu extends StatelessWidget {
+  const DonutSideMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
