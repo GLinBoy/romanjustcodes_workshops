@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/architect/cart/cart_page.dart';
+import 'package:romanjustcodes_workshops/pages/architect/cart/cart_service.dart';
 import 'package:romanjustcodes_workshops/pages/architect/main/main.dart';
 
 class SplashPage extends StatefulWidget {
@@ -186,15 +187,47 @@ class DonutBottomBar extends StatelessWidget {
                 bottomBarSelectionService.setTabSelection('favorites');
               },
             ),
-            IconButton(
-              icon: Icon(
-                Icons.shopping_cart,
-                color: bottomBarSelectionService.tabSelection == 'shoppingcart'
-                    ? Utils.mainDark
-                    : Utils.mainColor,
-              ),
-              onPressed: () {
-                bottomBarSelectionService.setTabSelection('shoppingcart');
+            Consumer<DonutShoppingCartService>(
+              builder: (context, cartService, child) {
+                int cartItems = cartService.cartDonuts.length;
+                return Container(
+                  constraints: BoxConstraints(minHeight: 70),
+                  padding: (EdgeInsets.all(10)),
+                  decoration: BoxDecoration(
+                    color: cartItems > 0
+                        ? (bottomBarSelectionService.tabSelection!! ==
+                                'shopping'
+                            ? Utils.mainDark
+                            : Utils.mainColor)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      cartItems > 0
+                          ? Text(
+                              '$cartItems',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            )
+                          : SizedBox(height: 17),
+                      SizedBox(height: 10),
+                      Icon(
+                        Icons.shopping_cart,
+                        color: cartItems > 0
+                            ? Colors.white
+                            : (bottomBarSelectionService.tabSelection! ==
+                                    'shopping'
+                                ? Utils.mainDark
+                                : Utils.mainColor),
+                      ),
+                    ],
+                  ),
+                );
               },
             ),
           ],
