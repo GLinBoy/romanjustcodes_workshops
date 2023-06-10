@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/architect/cart/cart_service.dart';
 import 'package:romanjustcodes_workshops/pages/architect/details/details.dart';
 import 'layout_part1/splash/splash.dart' as sp_pt1;
 import 'layout_part2/splash/splash.dart' as sp_pt2;
@@ -20,6 +21,9 @@ final List<PageItem> pageItems = [
         ),
         ChangeNotifierProvider(
           create: (_) => sp_architect_main.DonutService(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => DonutShoppingCartService(),
         ),
       ],
       child: MaterialApp(
