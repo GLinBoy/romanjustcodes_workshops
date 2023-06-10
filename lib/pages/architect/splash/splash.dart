@@ -195,8 +195,7 @@ class DonutBottomBar extends StatelessWidget {
                   padding: (EdgeInsets.all(10)),
                   decoration: BoxDecoration(
                     color: cartItems > 0
-                        ? (bottomBarSelectionService.tabSelection!! ==
-                                'shopping'
+                        ? (bottomBarSelectionService.tabSelection! == 'shopping'
                             ? Utils.mainDark
                             : Utils.mainColor)
                         : Colors.transparent,
