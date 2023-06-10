@@ -91,6 +91,55 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                       child: InkWell(
                         splashColor: Utils.mainDark.withOpacity(0.2),
                         highlightColor: Utils.mainDark.withOpacity(0.5),
+                        onTap: () {
+                          cartService.clearCart();
+                        },
+                        child: Container(
+                          padding: EdgeInsets.only(
+                            top: 10,
+                            bottom: 10,
+                            left: 20,
+                            right: 20,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(Icons.delete_forever,
+                                  color: cartService.cartDonuts.isEmpty
+                                      ? Colors.grey
+                                      : Utils.mainDark),
+                              Text(
+                                'Clear Cart',
+                                style: TextStyle(
+                                    color: cartService.cartDonuts.isEmpty
+                                        ? Colors.grey
+                                        : Utils.mainDark),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+          Consumer<DonutShoppingCartService>(
+            builder: (context, cartService, child) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Material(
+                      color: cartService.cartDonuts.isEmpty
+                          ? Colors.grey[200]
+                          : Utils.mainColor.withOpacity(0.2),
+                      child: InkWell(
+                        splashColor: Utils.mainDark.withOpacity(0.2),
+                        highlightColor: Utils.mainDark.withOpacity(0.5),
                         onTap: cartService.cartDonuts.isEmpty
                             ? null
                             : () {
