@@ -6,6 +6,8 @@ import 'package:romanjustcodes_workshops/pages/architect/main/main.dart';
 import 'package:romanjustcodes_workshops/pages/architect/splash/splash.dart';
 
 class DonutShopDetails extends StatefulWidget {
+  const DonutShopDetails({super.key});
+
   @override
   State<DonutShopDetails> createState() => _DonutShopDetailsState();
 }
@@ -89,25 +91,25 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
                     children: [
                       Expanded(
                         child: Text(
-                          '${selectedDonut!.name!}',
-                          style: TextStyle(
+                          selectedDonut!.name!,
+                          style: const TextStyle(
                             color: Utils.mainDark,
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      SizedBox(width: 50),
+                      const SizedBox(width: 50),
                       IconButton(
-                        icon: Icon(Icons.favorite_border_outlined),
+                        icon: const Icon(Icons.favorite_border_outlined),
                         color: Utils.mainDark,
                         onPressed: () {},
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       top: 10,
                       bottom: 10,
                       left: 20,
@@ -119,13 +121,13 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
                     ),
                     child: Text(
                       '\$${selectedDonut!.price!.toStringAsFixed(2)}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Text('${selectedDonut!.description!}'),
+                  const SizedBox(height: 20),
+                  Text(selectedDonut!.description!),
                   Consumer<DonutShoppingCartService>(
                     builder: (context, cartService, child) {
                       if (!cartService.isDonutInCart(selectedDonut!)) {
@@ -161,7 +163,7 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
                           ),
                         );
                       }
-                      return Padding(
+                      return const Padding(
                         padding: EdgeInsets.only(top: 30, bottom: 30),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
