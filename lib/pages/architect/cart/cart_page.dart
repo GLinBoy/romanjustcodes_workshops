@@ -30,7 +30,7 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(40),
+      padding: const EdgeInsets.all(40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -83,17 +83,17 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   cartService.cartDonuts.isEmpty
-                      ? SizedBox()
+                      ? const SizedBox()
                       : Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Total',
                               style: TextStyle(color: Utils.mainDark),
                             ),
                             Text(
                               '\$${cartService.getTotal().toStringAsFixed(2)}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Utils.mainDark,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 30,
@@ -114,7 +114,7 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                           cartService.clearCart();
                         },
                         child: Container(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             top: 10,
                             bottom: 10,
                             left: 20,
@@ -165,7 +165,7 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                                 cartService.clearCart();
                               },
                         child: Container(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             top: 10,
                             bottom: 10,
                             left: 20,
