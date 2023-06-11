@@ -3,12 +3,14 @@ import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/architect/splash/splash.dart';
 
 class DonutMainPage extends StatelessWidget {
+  const DonutMainPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        DonutPager(),
-        DonutFilterBar(),
+        const DonutPager(),
+        const DonutFilterBar(),
         Expanded(
           child: Consumer<DonutService>(
             builder: (context, donutService, child) {
@@ -22,6 +24,8 @@ class DonutMainPage extends StatelessWidget {
 }
 
 class DonutPager extends StatefulWidget {
+  const DonutPager({super.key});
+
   @override
   State<DonutPager> createState() => _DonutPagerState();
 }
@@ -154,6 +158,8 @@ class PageViewIndicator extends StatelessWidget {
 }
 
 class DonutFilterBar extends StatelessWidget {
+  const DonutFilterBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -264,7 +270,7 @@ class DonutService extends ChangeNotifier {
 class DonutList extends StatefulWidget {
   List<DonutModel>? donuts;
 
-  DonutList({this.donuts});
+  DonutList({this.donuts, super.key});
 
   @override
   State<DonutList> createState() => _DonutListState();
@@ -316,7 +322,7 @@ class _DonutListState extends State<DonutList> {
 
 class DonutCard extends StatelessWidget {
   DonutModel? donutInfo;
-  DonutCard({this.donutInfo});
+  DonutCard({this.donutInfo, super.key});
 
   @override
   Widget build(BuildContext context) {
