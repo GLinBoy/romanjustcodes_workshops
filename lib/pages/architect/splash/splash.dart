@@ -191,8 +191,8 @@ class DonutBottomBar extends StatelessWidget {
               builder: (context, cartService, child) {
                 int cartItems = cartService.cartDonuts.length;
                 return Container(
-                  constraints: BoxConstraints(minHeight: 70),
-                  padding: (EdgeInsets.all(10)),
+                  constraints: const BoxConstraints(minHeight: 70),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: cartItems > 0
                         ? (bottomBarSelectionService.tabSelection! == 'shopping'
@@ -207,14 +207,14 @@ class DonutBottomBar extends StatelessWidget {
                       cartItems > 0
                           ? Text(
                               '$cartItems',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
                               ),
                             )
-                          : SizedBox(height: 17),
-                      SizedBox(height: 10),
+                          : const SizedBox(height: 17),
+                      const SizedBox(height: 10),
                       Icon(
                         Icons.shopping_cart,
                         color: cartItems > 0
