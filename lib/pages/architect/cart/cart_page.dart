@@ -5,6 +5,8 @@ import 'package:romanjustcodes_workshops/pages/architect/cart/shopping_list.dart
 import 'package:romanjustcodes_workshops/pages/architect/splash/splash.dart';
 
 class DonutShoppingCartPage extends StatefulWidget {
+  const DonutShoppingCartPage({super.key});
+
   @override
   State<DonutShoppingCartPage> createState() => _DonutShoppingCartPageState();
 }
@@ -58,8 +60,8 @@ class _DonutShoppingCartPageState extends State<DonutShoppingCartPage>
                             color: Colors.grey[300],
                             size: 50,
                           ),
-                          SizedBox(height: 20),
-                          Text(
+                          const SizedBox(height: 20),
+                          const Text(
                             'You don\'t have any item on your cart yet!',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.grey),
