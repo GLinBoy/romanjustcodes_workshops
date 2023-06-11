@@ -5,6 +5,8 @@ import 'package:romanjustcodes_workshops/pages/architect/cart/cart_service.dart'
 import 'package:romanjustcodes_workshops/pages/architect/main/main.dart';
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
+
   @override
   SplashPageState createState() => SplashPageState();
 }
@@ -155,6 +157,8 @@ class DonutSideMenu extends StatelessWidget {
 }
 
 class DonutBottomBar extends StatelessWidget {
+  const DonutBottomBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
