@@ -19,22 +19,22 @@ class DonutShoppingListRow extends StatelessWidget {
             width: 80,
             height: 80,
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '${donut!.name}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Utils.mainColor,
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Container(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     top: 5,
                     bottom: 5,
                     left: 10,
@@ -58,12 +58,12 @@ class DonutShoppingListRow extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           IconButton(
             onPressed: () {
               onDeleteRow!();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.delete_forever,
               color: Utils.mainColor,
             ),
