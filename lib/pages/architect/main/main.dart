@@ -70,15 +70,15 @@ class _DonutPagerState extends State<DonutPager> {
                   DonutPage currentPage = pages[index];
                   return Container(
                     alignment: Alignment.bottomLeft,
-                    margin: EdgeInsets.all(20),
-                    padding: EdgeInsets.all(30),
+                    margin: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(30),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.2),
                           blurRadius: 10,
-                          offset: Offset(0.0, 5.0),
+                          offset: const Offset(0.0, 5.0),
                         ),
                       ],
                       image: DecorationImage(
@@ -138,7 +138,7 @@ class PageViewIndicator extends StatelessWidget {
               curve: Curves.easeInOut,
               width: 15,
               height: 15,
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: currentPage == index
                     ? Utils.mainColor
@@ -157,7 +157,7 @@ class DonutFilterBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Consumer<DonutService>(
         builder: (context, donutService, child) {
           return Column(
@@ -188,7 +188,7 @@ class DonutFilterBar extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Stack(
                 children: [
                   AnimatedAlign(
@@ -330,9 +330,10 @@ class DonutCard extends StatelessWidget {
         children: [
           Container(
             width: 150,
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             alignment: Alignment.bottomLeft,
-            margin: EdgeInsets.only(left: 10, top: 80, right: 10, bottom: 20),
+            margin:
+                const EdgeInsets.only(left: 10, top: 80, right: 10, bottom: 20),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -340,7 +341,7 @@ class DonutCard extends StatelessWidget {
                 BoxShadow(
                   color: Colors.black.withOpacity(0.05),
                   blurRadius: 10,
-                  offset: Offset(0.0, 4.0),
+                  offset: const Offset(0.0, 4.0),
                 ),
               ],
             ),
@@ -350,19 +351,19 @@ class DonutCard extends StatelessWidget {
               children: [
                 Text(
                   '${donutInfo!.name}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Utils.mainColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   decoration: BoxDecoration(
                     color: Utils.mainColor,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
                     top: 5,
@@ -370,7 +371,7 @@ class DonutCard extends StatelessWidget {
                   ),
                   child: Text(
                     '\$${donutInfo!.price!.toStringAsFixed(2)}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 12,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
