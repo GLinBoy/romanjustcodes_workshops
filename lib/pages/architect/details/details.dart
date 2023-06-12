@@ -55,7 +55,7 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
           width: 120,
           child: Image.network(Utils.donutLogoRedText),
         ),
-        actions: [
+        actions: const [
           DonutShoppingCartBadge(),
         ],
       ),
@@ -136,9 +136,9 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
                             cartService.addToCart(selectedDonut!);
                           },
                           child: Container(
-                            margin: EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(top: 20),
                             alignment: Alignment.center,
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                               left: 20,
                               right: 20,
                               top: 10,
@@ -148,7 +148,7 @@ class _DonutShopDetailsState extends State<DonutShopDetails>
                               color: Utils.mainDark.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            child: Row(
+                            child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.shopping_cart,
