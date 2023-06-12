@@ -7,6 +7,7 @@ import 'layout_part2/splash/splash.dart' as sp_pt2;
 import 'layout_part3/splash/splash.dart' as sp_pt3;
 import 'architect/splash/splash.dart' as sp_architect;
 import 'architect/main/main.dart' as sp_architect_main;
+import 'fullstack/bank_splash/bank_splash.dart' as bank_splash;
 
 final List<PageItem> pageItems = [
   PageItem(label: 'Layout Pt.1', page: const sp_pt1.SplashPage()),
@@ -38,6 +39,7 @@ final List<PageItem> pageItems = [
       ),
     ),
   ),
+  PageItem(label: 'Fullstack', page: bank_splash.FlutterBankSplash()),
 ];
 
 class HomeScreen extends StatelessWidget {
