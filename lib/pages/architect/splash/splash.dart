@@ -101,13 +101,13 @@ class DonutShopMain extends StatelessWidget {
                 Widget page;
                 switch (settings.name) {
                   case '/main':
-                    page = DonutMainPage();
+                    page = const DonutMainPage();
                     break;
                   case '/favorites':
                     page = const Center(child: Text('favorites'));
                     break;
                   case '/shoppingcart':
-                    page = DonutShoppingCartPage();
+                    page = const DonutShoppingCartPage();
                     break;
                   default:
                     page = const Center(child: Text('main'));
@@ -120,7 +120,7 @@ class DonutShopMain extends StatelessWidget {
               },
             ),
           ),
-          DonutBottomBar(),
+          const DonutBottomBar(),
         ],
       ),
     );
