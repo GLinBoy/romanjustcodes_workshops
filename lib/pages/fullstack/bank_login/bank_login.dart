@@ -8,6 +8,10 @@ class FlutterBankLogin extends StatefulWidget {
 class FlutterBankLoginState extends State<FlutterBankLogin> {
   @override
   Widget build(BuildContext context) {
-    return Center();
+    return Scaffold(
+      body: Center(
+        child: Text('Login Page'),
+      ),
+    );
   }
 }
