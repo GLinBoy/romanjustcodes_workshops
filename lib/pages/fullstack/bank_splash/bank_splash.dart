@@ -7,6 +7,27 @@ class FlutterBankSplash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Utils.mainThemeColor,
+      body: Stack(
+        children: [
+          Center(
+            child: Icon(
+              Icons.savings,
+              color: Colors.white,
+              size: 60,
+            ),
+          ),
+          Center(
+            child: SizedBox(
+              width: 100,
+              height: 100,
+              child: CircularProgressIndicator(
+                strokeWidth: 8,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
