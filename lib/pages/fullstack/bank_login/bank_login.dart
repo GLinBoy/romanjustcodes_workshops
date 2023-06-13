@@ -31,7 +31,22 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
                 color: Utils.mainThemeColor,
                 size: 45,
               ),
-            )
+            ),
+            const SizedBox(height: 30),
+            const Text(
+              'Welcome to',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 15,
+              ),
+            ),
+            const Text(
+              'Flutter\nSavings Bank',
+              style: TextStyle(
+                color: Utils.mainThemeColor,
+                fontSize: 30,
+              ),
+            ),
           ],
         ),
       ),
