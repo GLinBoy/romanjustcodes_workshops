@@ -7,6 +7,9 @@ class FlutterBankLogin extends StatefulWidget {
 }
 
 class FlutterBankLoginState extends State<FlutterBankLogin> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +64,7 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
                         fontSize: 12,
                       ),
                     ),
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),
