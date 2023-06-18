@@ -96,7 +96,42 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
                         style: const TextStyle(fontSize: 16),
                         controller: usernameController,
                       ),
-                    )
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      padding: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: TextField(
+                        onChanged: (text) {
+                          setState(() {
+                            // ?
+                          });
+                        },
+                        obscureText: true,
+                        obscuringCharacter: "*",
+                        decoration: const InputDecoration(
+                          prefixIcon:
+                              Icon(Icons.lock, color: Utils.mainThemeColor),
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          errorBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          contentPadding: EdgeInsets.only(
+                            left: 15,
+                            bottom: 11,
+                            top: 11,
+                            right: 15,
+                          ),
+                          hintText: "Password",
+                        ),
+                        controller: passwordController,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ),
                   ],
                 ),
               ),
