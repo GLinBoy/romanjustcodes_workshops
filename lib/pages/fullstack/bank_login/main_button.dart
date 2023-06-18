@@ -6,11 +6,19 @@ class FlutterBankMainButton extends StatelessWidget {
   final Function? onTap;
   final String? label;
   final bool? enabled;
+  final IconData? icon;
+  final Color? backgroundColor;
+  final Color? iconColor;
+  final Color? labelColor;
 
   const FlutterBankMainButton({
     super.key,
     this.label,
     this.onTap,
+    this.icon,
+    this.backgroundColor = Utils.mainThemeColor,
+    this.iconColor = Colors.white,
+    this.labelColor = Colors.white,
     this.enabled = true,
   });
 
@@ -22,9 +30,8 @@ class FlutterBankMainButton extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(50),
           child: Material(
-            color: enabled!
-                ? Utils.mainThemeColor
-                : Utils.mainThemeColor.withOpacity(0.5),
+            color:
+                enabled! ? backgroundColor : backgroundColor!.withOpacity(0.5),
             child: InkWell(
               onTap: enabled!
                   ? () {
@@ -38,13 +45,30 @@ class FlutterBankMainButton extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                 ),
-                child: Text(
-                  label!,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Visibility(
+                      visible: icon != null,
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 20),
+                        child: Icon(
+                          icon,
+                          color: iconColor,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      label!,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: labelColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
