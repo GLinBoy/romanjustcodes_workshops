@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/main_button.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/utils/utils.dart';
 
 class FlutterBankLogin extends StatefulWidget {
@@ -135,6 +136,11 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
                   ],
                 ),
               ),
+            ),
+            FlutterBankMainButton(
+              label: 'Sign In',
+              enabled: true,
+              onTap: () {},
             ),
           ],
         ),
