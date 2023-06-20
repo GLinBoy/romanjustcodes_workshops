@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_app/bank_main.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/login_service.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/main_button.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/utils/utils.dart';
 
@@ -13,6 +16,9 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
 
   @override
   Widget build(BuildContext context) {
+    LoginService loginService =
+        Provider.of<LoginService>(context, listen: false);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -140,7 +146,23 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
             FlutterBankMainButton(
               label: 'Sign In',
               enabled: true,
-              onTap: () {},
+              onTap: () async {
+                var username = usernameController.value.text;
+                var pwd = passwordController.value.text;
+                bool isLoggedIn = await loginService.signInWithEmailAndPassword(
+                  username,
+                  pwd,
+                );
+                if (isLoggedIn) {
+                  usernameController.clear();
+                  passwordController.clear();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => FlutterBankMain(),
+                    ),
+                  );
+                }
+              },
             ),
             const SizedBox(height: 10),
             FlutterBankMainButton(
