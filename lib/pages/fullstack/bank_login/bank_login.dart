@@ -139,6 +139,29 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
                         style: const TextStyle(fontSize: 16),
                       ),
                     ),
+                    Consumer<LoginService>(
+                      builder: (context, lService, child) {
+                        String errorMsg = lService.getErrorMessage();
+                        if (errorMsg.isEmpty) {
+                          return const SizedBox(height: 40);
+                        }
+                        return Container(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.warning, color: Colors.red),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  errorMsg,
+                                  style: const TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
