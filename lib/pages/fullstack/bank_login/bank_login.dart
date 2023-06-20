@@ -145,7 +145,7 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
             ),
             FlutterBankMainButton(
               label: 'Sign In',
-              enabled: true,
+              enabled: validateEmailAndPassword(),
               onTap: () async {
                 var username = usernameController.value.text;
                 var pwd = passwordController.value.text;
