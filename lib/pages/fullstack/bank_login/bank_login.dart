@@ -178,4 +178,10 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
       ),
     );
   }
+
+  bool validateEmailAndPassword() {
+    return usernameController.value.text.isNotEmpty &&
+        passwordController.value.text.isEmpty &&
+        Utils.validateEmail(usernameController.value.text);
+  }
 }
