@@ -19,6 +19,7 @@ class LoginService extends ChangeNotifier {
   }
 
   Future<bool> signInWithEmailAndPassword(String email, String password) async {
+    setLoginErrorMessage('');
     try {
       UserCredential credentials =
           await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -28,6 +29,7 @@ class LoginService extends ChangeNotifier {
       _userId = credentials.user!.uid;
       return true;
     } on FirebaseAuthException catch (ex) {
+      setLoginErrorMessage('Error during sign-in: ' + ex.message!);
       return false;
     }
   }
