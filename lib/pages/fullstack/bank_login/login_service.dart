@@ -3,9 +3,19 @@ import 'package:flutter/material.dart';
 
 class LoginService extends ChangeNotifier {
   String _userId = '';
+  String _errorMessage = '';
 
   String getUserId() {
     return _userId;
+  }
+
+  void setLoginErrorMessage(String msg) {
+    _errorMessage = msg;
+    notifyListeners();
+  }
+
+  String getErrorMessage() {
+    return _errorMessage;
   }
 
   Future<bool> signInWithEmailAndPassword(String email, String password) async {
