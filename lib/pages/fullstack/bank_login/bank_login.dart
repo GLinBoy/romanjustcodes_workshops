@@ -202,6 +202,13 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
     );
   }
 
+  @override
+  void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   bool validateEmailAndPassword() {
     return usernameController.value.text.isNotEmpty &&
         passwordController.value.text.isNotEmpty &&
