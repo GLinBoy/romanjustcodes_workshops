@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_splash/bank_splash.dart';
 
 class FlutterBankApp extends StatelessWidget {
   @override
@@ -10,6 +11,8 @@ class FlutterBankApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
+      debugShowCheckedModeBanner: false,
+      home: FlutterBankSplash(),
     );
   }
 }
