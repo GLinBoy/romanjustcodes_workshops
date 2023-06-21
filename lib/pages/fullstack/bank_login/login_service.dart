@@ -33,4 +33,15 @@ class LoginService extends ChangeNotifier {
       return false;
     }
   }
+
+  Future<bool> createUserWithEmailAndPassword(String email, String pwd) async {
+    try {
+      UserCredential userCredentials = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: pwd);
+
+      return true; // or userCredentials != null;
+    } on FirebaseAuthException {
+      return false;
+    }
+  }
 }
