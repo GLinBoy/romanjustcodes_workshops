@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/architect/cart/cart_service.dart';
 import 'package:romanjustcodes_workshops/pages/architect/details/details.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_app/bank_app.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_app/bank_main.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/login_service.dart';
 import 'layout_part1/splash/splash.dart' as sp_pt1;
 import 'layout_part2/splash/splash.dart' as sp_pt2;
@@ -46,6 +47,7 @@ final List<PageItem> pageItems = [
     page: MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LoginService()),
+        ChangeNotifierProvider(create: (_) => FlutterBankService()),
       ],
       // child: bank_splash.FlutterBankSplash(),
       child: FlutterBankApp(),
