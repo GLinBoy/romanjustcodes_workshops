@@ -147,3 +147,14 @@ class FlutterBankService extends ChangeNotifier {
     return accountsCompleter.future;
   }
 }
+
+class AccountCard extends StatelessWidget {
+  final Account? account;
+
+  const AccountCard({Key? key, this.account}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
