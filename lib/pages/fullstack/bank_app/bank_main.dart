@@ -28,3 +28,7 @@ class Account {
     );
   }
 }
+
+class FlutterBankService extends ChangeNotifier {
+  Future<List<Account>> getAccounts(BuildContext context) {}
+}
