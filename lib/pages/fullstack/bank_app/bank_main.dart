@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/login_service.dart';
 
 class FlutterBankMain extends StatelessWidget {
   @override
@@ -30,5 +34,13 @@ class Account {
 }
 
 class FlutterBankService extends ChangeNotifier {
-  Future<List<Account>> getAccounts(BuildContext context) {}
+  Future<List<Account>> getAccounts(BuildContext context) {
+    LoginService loginService =
+        Provider.of<LoginService>(context, listen: false);
+    String userId = loginService.getUserId();
+
+    List<Account> accounts = [];
+
+    Completer<List<Account>> accountsCompleter = Completer();
+  }
 }
