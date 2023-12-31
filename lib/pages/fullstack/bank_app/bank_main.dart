@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/login_service.dart';
@@ -42,5 +43,24 @@ class FlutterBankService extends ChangeNotifier {
     List<Account> accounts = [];
 
     Completer<List<Account>> accountsCompleter = Completer();
+
+    FirebaseFirestore.instance
+        .collection('accounts')
+        .doc(userId)
+        .collection('user_accounts')
+        .get()
+        .then((QuerySnapshot collection) {
+      for (var doc in collection.docs) {
+        var acctDoc = doc.data() as Map<String, dynamic>;
+        var acct = Account.fromJson(acctDoc, doc.id);
+        accounts.add(acct);
+      }
+
+      Future.delayed(const Duration(seconds: 1), () {
+        accountsCompleter.complete(accounts);
+      });
+    });
+
+    return accountsCompleter.future;
   }
 }
