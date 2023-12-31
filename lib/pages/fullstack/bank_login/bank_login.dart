@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_app/bank_main.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/bank_registration.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/login_service.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/main_button.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/utils/utils.dart';
@@ -191,7 +192,10 @@ class FlutterBankLoginState extends State<FlutterBankLogin> {
             FlutterBankMainButton(
               label: 'Register',
               icon: Icons.account_circle,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => FlutterAccountRegistration()));
+              },
               backgroundColor: Utils.mainThemeColor.withOpacity(0.05),
               iconColor: Utils.mainThemeColor,
               labelColor: Utils.mainThemeColor,
