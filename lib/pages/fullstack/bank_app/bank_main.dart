@@ -12,6 +12,7 @@ class FlutterBankMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      drawer: Drawer(child: FlutterBankDrawer()),
       appBar: AppBar(
         elevation: 0,
         iconTheme: const IconThemeData(color: Utils.mainThemeColor),
@@ -342,6 +343,36 @@ class FlutterBankBottomBar extends StatelessWidget {
 class FlutterBankDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Utils.mainThemeColor,
+      padding: const EdgeInsets.all(30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(
+            Icons.savings,
+            color: Colors.white,
+            size: 60,
+          ),
+          const SizedBox(height: 40),
+          Material(
+            color: Colors.transparent,
+            child: TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  Colors.white.withOpacity(0.1),
+                ),
+              ),
+              child: const Text(
+                'Sign Out',
+                textAlign: TextAlign.left,
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {},
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
