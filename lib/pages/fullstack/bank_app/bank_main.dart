@@ -53,7 +53,7 @@ class FlutterBankMain extends StatelessWidget {
                     builder: (BuildContext context, AsyncSnapshot snapshot) {
                       if (snapshot.connectionState != ConnectionState.done ||
                           !snapshot.hasData) {
-                        return Text('Loading');
+                        return FlutterBankLoading();
                       }
 
                       List<Account> accounts = snapshot.data as List<Account>;
@@ -233,6 +233,33 @@ class AccountCard extends StatelessWidget {
 class FlutterBankLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center();
+    return Center(
+      child: SizedBox(
+        width: 80,
+        height: 80,
+        child: Stack(
+          children: const [
+            Center(
+              child: SizedBox(
+                width: 80,
+                height: 80,
+                child: CircularProgressIndicator(
+                  strokeWidth: 8,
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(Utils.mainThemeColor),
+                ),
+              ),
+            ),
+            Center(
+              child: Icon(
+                Icons.savings,
+                color: Utils.mainThemeColor,
+                size: 40,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
