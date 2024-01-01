@@ -263,3 +263,11 @@ class FlutterBankLoading extends StatelessWidget {
     );
   }
 }
+
+class FlutterBankBottomBarItem {
+  String? label;
+  IconData? icon;
+  Function? action;
+
+  FlutterBankBottomBarItem({this.label, this.icon, this.action});
+}
