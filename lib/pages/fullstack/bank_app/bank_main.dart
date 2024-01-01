@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:intl/intl.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +85,7 @@ class FlutterBankMain extends StatelessWidget {
                         itemCount: accounts.length,
                         itemBuilder: (context, index) {
                           var acct = accounts[index];
-                          return Text(acct.type!);
+                          return AccountCard(account: acct);
                         },
                       );
                     },
@@ -129,7 +130,7 @@ class FlutterBankService extends ChangeNotifier {
 
     FirebaseFirestore.instance
         .collection('accounts')
-        .doc(userId)
+        .doc('lLBuBs7RUKfNnhSs0UjHeIgoojr2')
         .collection('user_accounts')
         .get()
         .then((QuerySnapshot collection) {
@@ -155,6 +156,76 @@ class AccountCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      height: 180,
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 15,
+            offset: const Offset(0.0, 5.0),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              Text(
+                '${account!.type!.toUpperCase()} ACCT',
+                textAlign: TextAlign.left,
+                style: const TextStyle(
+                  color: Utils.mainThemeColor,
+                  fontSize: 12,
+                ),
+              ),
+              Text('**** ${account!.accountNumber}'),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Balance',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: Utils.mainThemeColor,
+                  fontSize: 12,
+                ),
+              ),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.monetization_on,
+                    color: Utils.mainThemeColor,
+                    size: 35,
+                  ),
+                  Text(
+                    '\$${account!.balance!.toStringAsFixed(2)}',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 35,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                'As of ${DateFormat.yMd().add_jm().format(DateTime.now())}',
+                style: const TextStyle(
+                  fontSize: 10,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
