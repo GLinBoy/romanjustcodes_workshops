@@ -338,3 +338,10 @@ class FlutterBankBottomBar extends StatelessWidget {
     );
   }
 }
+
+class FlutterBankDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
