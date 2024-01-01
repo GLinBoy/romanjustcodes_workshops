@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -43,5 +45,20 @@ class LoginService extends ChangeNotifier {
     } on FirebaseAuthException {
       return false;
     }
+  }
+
+  Future<bool> signOut() {
+    Completer<bool> signOutCompleter = Completer();
+
+    FirebaseAuth.instance.signOut().then(
+      (value) {
+        signOutCompleter.complete(true);
+      },
+      onError: (error) {
+        signOutCompleter.completeError({'error': error});
+      },
+    );
+
+    return signOutCompleter.future;
   }
 }
