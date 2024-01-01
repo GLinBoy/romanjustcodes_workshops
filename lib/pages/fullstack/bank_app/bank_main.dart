@@ -229,3 +229,10 @@ class AccountCard extends StatelessWidget {
     );
   }
 }
+
+class FlutterBankLoading extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center();
+  }
+}
