@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_app/bank_main.dart';
 
 class Utils {
   static const Color mainThemeColor = Color(0xFF8700C3);
@@ -46,5 +47,25 @@ class Utils {
           controller: controller,
           style: const TextStyle(fontSize: 16),
         ));
+  }
+
+  static List<FlutterBankBottomBarItem> getBottomBarItems() {
+    return [
+      FlutterBankBottomBarItem(
+        label: 'Withdraw',
+        icon: Icons.logout,
+        action: () {},
+      ),
+      FlutterBankBottomBarItem(
+        label: 'Deposit',
+        icon: Icons.login,
+        action: () {},
+      ),
+      FlutterBankBottomBarItem(
+        label: 'Expenses',
+        icon: Icons.payment,
+        action: () {},
+      ),
+    ];
   }
 }
