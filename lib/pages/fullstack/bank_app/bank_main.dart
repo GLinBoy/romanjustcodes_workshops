@@ -271,3 +271,10 @@ class FlutterBankBottomBarItem {
 
   FlutterBankBottomBarItem({this.label, this.icon, this.action});
 }
+
+class FlutterBankBottomBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
