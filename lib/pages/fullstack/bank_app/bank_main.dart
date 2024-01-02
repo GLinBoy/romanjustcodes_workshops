@@ -121,6 +121,17 @@ class Account {
 }
 
 class FlutterBankService extends ChangeNotifier {
+  Account? selectedAccount;
+
+  void setSelectedAccount(Account? acct) {
+    selectedAccount = acct;
+    notifyListeners();
+  }
+
+  Account? getSelectedAccount() {
+    return selectedAccount;
+  }
+
   Future<List<Account>> getAccounts(BuildContext context) {
     LoginService loginService =
         Provider.of<LoginService>(context, listen: false);
