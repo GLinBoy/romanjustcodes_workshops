@@ -442,6 +442,20 @@ class FlutterBankDeposit extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Utils.mainThemeColor),
+        backgroundColor: Colors.transparent,
+        title: const Icon(Icons.savings, color: Utils.mainThemeColor, size: 40),
+        centerTitle: true,
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [],
+        ),
+      ),
     );
   }
 }
