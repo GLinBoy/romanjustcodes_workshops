@@ -436,3 +436,12 @@ class DepositService extends ChangeNotifier {
     return amountToDeposit > 0;
   }
 }
+
+class FlutterBankDeposit extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+    );
+  }
+}
