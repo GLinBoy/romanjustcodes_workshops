@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_app/bank_main.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/login_service.dart';
 
 class Utils {
   static const Color mainThemeColor = Color(0xFF8700C3);
@@ -67,5 +69,39 @@ class Utils {
         action: () {},
       ),
     ];
+  }
+
+  static void signOutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext ctx) {
+        return AlertDialog(
+          title: const Text(
+            'Flutter Saving Bank Logout',
+            style: TextStyle(color: Utils.mainThemeColor),
+          ),
+          content: Container(
+            padding: const EdgeInsets.all(20),
+            child:
+                const Text('Are you sure you want to log out of your account?'),
+          ),
+          actions: [
+            TextButton(
+              child: const Text(
+                'Yes',
+                style: TextStyle(color: Utils.mainThemeColor),
+              ),
+              onPressed: () async {
+                Navigator.of(ctx).pop();
+                LoginService loginService =
+                    Provider.of<LoginService>(ctx, listen: false);
+                await loginService.signOut();
+                Navigator.of(ctx).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
