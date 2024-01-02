@@ -160,6 +160,34 @@ class FlutterBankService extends ChangeNotifier {
 
     return accountsCompleter.future;
   }
+
+  Future<bool> performDeposit(BuildContext context) {
+    Completer<bool> depositComplete = Completer();
+
+    LoginService loginService =
+        Provider.of<LoginService>(context, listen: false);
+    String userId = loginService.getUserId();
+
+    DepositService depositService =
+        Provider.of<DepositService>(context, listen: false);
+    int amountToDeposit = depositService.amountToDeposit.toInt();
+
+    DocumentReference doc = FirebaseFirestore.instance
+        .collection('accounts')
+        .doc(userId)
+        .collection('user_account')
+        .doc(selectedAccount!.id!);
+
+    doc.update({'balance': selectedAccount!.balance! + amountToDeposit}).then(
+        (value) {
+      depositService.resetDepositService();
+      depositComplete.complete(true);
+    }, onError: (error) {
+      depositComplete.completeError({'error': error});
+    });
+
+    return depositComplete.future;
+  }
 }
 
 class AccountCard extends StatelessWidget {
