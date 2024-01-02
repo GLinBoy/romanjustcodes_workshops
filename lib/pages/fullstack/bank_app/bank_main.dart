@@ -459,3 +459,15 @@ class FlutterBankDeposit extends StatelessWidget {
     );
   }
 }
+
+class AccountActionHeader extends StatelessWidget {
+  final String? headerTitle;
+  final IconData? icon;
+
+  const AccountActionHeader({this.headerTitle, this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
