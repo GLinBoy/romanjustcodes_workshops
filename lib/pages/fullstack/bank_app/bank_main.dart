@@ -368,7 +368,10 @@ class FlutterBankDrawer extends StatelessWidget {
                 textAlign: TextAlign.left,
                 style: TextStyle(color: Colors.white),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+                Utils.signOutDialog(context);
+              },
             ),
           ),
         ],
