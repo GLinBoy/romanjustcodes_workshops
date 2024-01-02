@@ -453,7 +453,9 @@ class FlutterBankDeposit extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [],
+          children: [
+            AccountActionHeader(headerTitle: 'Deposit', icon: Icons.login),
+          ],
         ),
       ),
     );
@@ -468,6 +470,18 @@ class AccountActionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      child: Row(
+        children: [
+          Icon(icon, color: Utils.mainThemeColor, size: 30),
+          const SizedBox(width: 10),
+          Text(
+            headerTitle!,
+            style: const TextStyle(color: Utils.mainThemeColor, fontSize: 20),
+          )
+        ],
+      ),
+    );
   }
 }
