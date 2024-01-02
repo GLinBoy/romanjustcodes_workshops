@@ -48,6 +48,7 @@ final List<PageItem> pageItems = [
       providers: [
         ChangeNotifierProvider(create: (_) => LoginService()),
         ChangeNotifierProvider(create: (_) => FlutterBankService()),
+        ChangeNotifierProvider(create: (_) => DepositService()),
       ],
       // child: bank_splash.FlutterBankSplash(),
       child: FlutterBankApp(),
