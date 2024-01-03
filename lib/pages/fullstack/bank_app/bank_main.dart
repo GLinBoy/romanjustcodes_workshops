@@ -460,6 +460,7 @@ class FlutterBankDeposit extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             AccountActionHeader(headerTitle: 'Deposit', icon: Icons.login),
+            Expanded(child: AccountActionSelection(actionTypeLabel: 'To')),
           ],
         ),
       ),
