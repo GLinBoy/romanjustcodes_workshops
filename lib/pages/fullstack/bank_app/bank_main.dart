@@ -566,7 +566,7 @@ class AccountActionCard extends StatelessWidget {
   final List<Account>? accounts;
   final Account? selectedAccount;
 
-  const AccountActionCard({this.accounts, this.selectedAccount});
+  const AccountActionCard({super.key, this.accounts, this.selectedAccount});
 
   @override
   Widget build(BuildContext context) {
