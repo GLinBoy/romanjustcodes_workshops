@@ -492,3 +492,10 @@ class AccountActionSelection extends StatelessWidget {
     return Container();
   }
 }
+
+class FlutterBankError extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center();
+  }
+}
