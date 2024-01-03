@@ -492,9 +492,42 @@ class AccountActionHeader extends StatelessWidget {
 }
 
 class AccountActionSelection extends StatelessWidget {
+  final String? actionTypeLabel;
+
+  const AccountActionSelection({this.actionTypeLabel});
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Consumer<FlutterBankService>(
+      builder: ((context, service, child) {
+        return FutureBuilder(
+          future: service.getAccounts(context),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return FlutterBankLoading();
+            }
+            if (snapshot.hasError) {
+              return FlutterBankError();
+            }
+
+            var selectedAccount = service.getSelectedAccount();
+            List<Account> accounts = snapshot.data as List<Account>;
+
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  actionTypeLabel!,
+                  style: TextStyle(color: Colors.grey, fontSize: 15),
+                ),
+                const SizedBox(height: 10),
+              ],
+            );
+          },
+        );
+      }),
+    );
   }
 }
 
