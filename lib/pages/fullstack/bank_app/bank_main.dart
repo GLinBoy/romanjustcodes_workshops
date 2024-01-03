@@ -485,3 +485,10 @@ class AccountActionHeader extends StatelessWidget {
     );
   }
 }
+
+class AccountActionSelection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
