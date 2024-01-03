@@ -522,3 +522,10 @@ class FlutterBankError extends StatelessWidget {
     );
   }
 }
+
+class AccountActionCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row();
+  }
+}
