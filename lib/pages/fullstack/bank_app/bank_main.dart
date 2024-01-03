@@ -496,6 +496,29 @@ class AccountActionSelection extends StatelessWidget {
 class FlutterBankError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center();
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const [
+          Icon(Icons.warning_outlined, color: Utils.mainThemeColor, size: 20),
+          SizedBox(height: 20),
+          Text(
+            'Error fetching data',
+            style: TextStyle(
+              color: Utils.mainThemeColor,
+              fontSize: 20,
+            ),
+          ),
+          Text(
+            'Please try again',
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
