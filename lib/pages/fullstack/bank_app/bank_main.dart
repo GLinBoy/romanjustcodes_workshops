@@ -146,17 +146,22 @@ class FlutterBankService extends ChangeNotifier {
         .doc('lLBuBs7RUKfNnhSs0UjHeIgoojr2')
         .collection('user_accounts')
         .get()
-        .then((QuerySnapshot collection) {
-      for (var doc in collection.docs) {
-        var acctDoc = doc.data() as Map<String, dynamic>;
-        var acct = Account.fromJson(acctDoc, doc.id);
-        accounts.add(acct);
-      }
+        .then(
+      (QuerySnapshot collection) {
+        for (var doc in collection.docs) {
+          var acctDoc = doc.data() as Map<String, dynamic>;
+          var acct = Account.fromJson(acctDoc, doc.id);
+          accounts.add(acct);
+        }
 
-      Future.delayed(const Duration(seconds: 1), () {
-        accountsCompleter.complete(accounts);
-      });
-    });
+        Future.delayed(const Duration(seconds: 1), () {
+          accountsCompleter.complete(accounts);
+        });
+      },
+      onError: (error) {
+        accountsCompleter.completeError({'error': error});
+      },
+    );
 
     return accountsCompleter.future;
   }
