@@ -720,3 +720,14 @@ class AccountDepositSlider extends StatelessWidget {
     });
   }
 }
+
+class TransactionCompletionPage extends StatelessWidget {
+  final bool? isDeposit;
+
+  const TransactionCompletionPage({Key? key, this.isDeposit});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
