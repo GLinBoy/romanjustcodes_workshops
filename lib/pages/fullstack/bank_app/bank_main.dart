@@ -728,6 +728,8 @@ class TransactionCompletionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlutterBankService bankService =
+        Provider.of<FlutterBankService>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
