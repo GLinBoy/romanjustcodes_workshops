@@ -665,3 +665,14 @@ class AccountActionCard extends StatelessWidget {
     );
   }
 }
+
+class AccountDepositSlider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<DepositService>(builder: (context, value, child) {
+      return Column(
+        children: [],
+      );
+    });
+  }
+}
