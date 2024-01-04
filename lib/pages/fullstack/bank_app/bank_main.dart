@@ -460,7 +460,12 @@ class FlutterBankDeposit extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             AccountActionHeader(headerTitle: 'Deposit', icon: Icons.login),
-            Expanded(child: AccountActionSelection(actionTypeLabel: 'To')),
+            Expanded(
+              child: AccountActionSelection(
+                actionTypeLabel: 'To',
+                amountChanger: AccountDepositSlider(),
+              ),
+            ),
           ],
         ),
       ),
@@ -494,8 +499,12 @@ class AccountActionHeader extends StatelessWidget {
 
 class AccountActionSelection extends StatelessWidget {
   final String? actionTypeLabel;
+  final Widget? amountChanger;
 
-  const AccountActionSelection({this.actionTypeLabel});
+  const AccountActionSelection({
+    this.actionTypeLabel,
+    required this.amountChanger,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -562,6 +571,7 @@ class AccountActionSelection extends StatelessWidget {
                             )
                           ],
                         ),
+                        Expanded(child: amountChanger!),
                       ],
                     ),
                   ),
@@ -669,9 +679,33 @@ class AccountActionCard extends StatelessWidget {
 class AccountDepositSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer<DepositService>(builder: (context, value, child) {
+    return Consumer<DepositService>(builder: (context, DepositService, child) {
       return Column(
-        children: [],
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            'Amount To Deposit',
+            style: TextStyle(color: Colors.grey),
+          ),
+          Text(
+            '\$${DepositService.amountToDeposit.toInt().toString()}',
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 60,
+            ),
+          ),
+          Slider(
+            value: DepositService.amountToDeposit,
+            max: 1000,
+            activeColor: Utils.mainThemeColor,
+            inactiveColor: Colors.grey.withOpacity(0.5),
+            thumbColor: Utils.mainThemeColor,
+            onChanged: (double value) {
+              DepositService.setAmountToDeposit(value);
+            },
+          ),
+        ],
       );
     });
   }
