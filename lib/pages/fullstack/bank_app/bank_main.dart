@@ -728,6 +728,19 @@ class TransactionCompletionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Utils.mainThemeColor),
+        backgroundColor: Colors.transparent,
+        title: const Icon(
+          Icons.savings,
+          color: Utils.mainThemeColor,
+          size: 40,
+        ),
+        centerTitle: true,
+      ),
+    );
   }
 }
