@@ -523,6 +523,10 @@ class AccountActionSelection extends StatelessWidget {
                   style: TextStyle(color: Colors.grey, fontSize: 15),
                 ),
                 const SizedBox(height: 10),
+                AccountActionCard(
+                  selectedAccount: selectedAccount,
+                  accounts: accounts,
+                ),
               ],
             );
           },
