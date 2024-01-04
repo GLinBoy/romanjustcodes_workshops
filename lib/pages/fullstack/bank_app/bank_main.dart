@@ -743,6 +743,20 @@ class TransactionCompletionPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+      body: Center(
+        child: FutureBuilder(
+          future: bankService.performDeposit(context),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return FlutterBankLoading();
+            }
+
+            if (snapshot.hasError) {
+              return FlutterBankError();
+            }
+          },
+        ),
+      ),
     );
   }
 }
