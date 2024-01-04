@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/login_service.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_login/main_button.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/utils/utils.dart';
 
 class FlutterBankMain extends StatelessWidget {
@@ -466,6 +467,15 @@ class FlutterBankDeposit extends StatelessWidget {
                 amountChanger: AccountDepositSlider(),
               ),
             ),
+            Consumer<DepositService>(
+              builder: (context, depositService, child) {
+                return FlutterBankMainButton(
+                  enabled: depositService.checkAmountToDeposit(),
+                  label: 'Make Deposit',
+                  onTap: () {},
+                );
+              },
+            )
           ],
         ),
       ),
