@@ -527,6 +527,45 @@ class AccountActionSelection extends StatelessWidget {
                   selectedAccount: selectedAccount,
                   accounts: accounts,
                 ),
+                Expanded(
+                  child: Visibility(
+                    visible: selectedAccount != null,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(top: 30),
+                          child: Text(
+                            'Current Balance',
+                            style: const TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.monetization_on,
+                              color: Utils.mainThemeColor,
+                              size: 15,
+                            ),
+                            Text(
+                              selectedAccount != null
+                                  ? '\$' +
+                                      selectedAccount.balance!
+                                          .toStringAsFixed(2)
+                                  : '',
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 35,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             );
           },
