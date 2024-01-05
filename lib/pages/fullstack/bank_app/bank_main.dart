@@ -129,6 +129,10 @@ class FlutterBankService extends ChangeNotifier {
     notifyListeners();
   }
 
+  void resetSelections() {
+    setSelectedAccount(null);
+  }
+
   Account? getSelectedAccount() {
     return selectedAccount;
   }
@@ -446,48 +450,57 @@ class DepositService extends ChangeNotifier {
 class FlutterBankDeposit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Utils.mainThemeColor),
-        backgroundColor: Colors.transparent,
-        title: const Icon(Icons.savings, color: Utils.mainThemeColor, size: 40),
-        centerTitle: true,
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            AccountActionHeader(headerTitle: 'Deposit', icon: Icons.login),
-            Expanded(
-              child: AccountActionSelection(
-                actionTypeLabel: 'To',
-                amountChanger: AccountDepositSlider(),
+    return WillPopScope(
+      onWillPop: () {
+        FlutterBankService bankService =
+            Provider.of<FlutterBankService>(context, listen: false);
+        bankService.resetSelections();
+        return Future.value(true);
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Utils.mainThemeColor),
+          backgroundColor: Colors.transparent,
+          title:
+              const Icon(Icons.savings, color: Utils.mainThemeColor, size: 40),
+          centerTitle: true,
+        ),
+        body: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              AccountActionHeader(headerTitle: 'Deposit', icon: Icons.login),
+              Expanded(
+                child: AccountActionSelection(
+                  actionTypeLabel: 'To',
+                  amountChanger: AccountDepositSlider(),
+                ),
               ),
-            ),
-            Consumer<DepositService>(
-              builder: (context, depositService, child) {
-                return FlutterBankMainButton(
-                  enabled: depositService.checkAmountToDeposit(),
-                  label: 'Make Deposit',
-                  onTap: depositService.checkAmountToDeposit()
-                      ? () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const TransactionCompletionPage(
-                                isDeposit: true,
+              Consumer<DepositService>(
+                builder: (context, depositService, child) {
+                  return FlutterBankMainButton(
+                    enabled: depositService.checkAmountToDeposit(),
+                    label: 'Make Deposit',
+                    onTap: depositService.checkAmountToDeposit()
+                        ? () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const TransactionCompletionPage(
+                                  isDeposit: true,
+                                ),
                               ),
-                            ),
-                          );
-                        }
-                      : null,
-                );
-              },
-            )
-          ],
+                            );
+                          }
+                        : null,
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -742,36 +755,43 @@ class TransactionCompletionPage extends StatelessWidget {
     FlutterBankService bankService =
         Provider.of<FlutterBankService>(context, listen: false);
     Future.delayed(const Duration(seconds: 3), () {
+      bankService.resetSelections();
       Navigator.of(context).pop();
     });
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Utils.mainThemeColor),
-        backgroundColor: Colors.transparent,
-        title: const Icon(
-          Icons.savings,
-          color: Utils.mainThemeColor,
-          size: 40,
+    return WillPopScope(
+      onWillPop: () {
+        bankService.resetSelections();
+        return Future.value(true);
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Utils.mainThemeColor),
+          backgroundColor: Colors.transparent,
+          title: const Icon(
+            Icons.savings,
+            color: Utils.mainThemeColor,
+            size: 40,
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: FutureBuilder(
-          future: bankService.performDeposit(context),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return FlutterBankLoading();
-            }
+        body: Center(
+          child: FutureBuilder(
+            future: bankService.performDeposit(context),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return FlutterBankLoading();
+              }
 
-            if (snapshot.hasError) {
-              return FlutterBankError();
-            }
+              if (snapshot.hasError) {
+                return FlutterBankError();
+              }
 
-            return FlutterBankTransactionComplete();
-          },
+              return FlutterBankTransactionComplete();
+            },
+          ),
         ),
       ),
     );
