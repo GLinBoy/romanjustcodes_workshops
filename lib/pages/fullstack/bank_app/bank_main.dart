@@ -322,7 +322,7 @@ class FlutterBankBottomBarItem {
 class FlutterBankBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var bottomItems = Utils.getBottomBarItems();
+    var bottomItems = Utils.getBottomBarItems(context);
 
     return Container(
       height: 100,
