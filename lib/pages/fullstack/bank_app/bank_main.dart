@@ -472,7 +472,18 @@ class FlutterBankDeposit extends StatelessWidget {
                 return FlutterBankMainButton(
                   enabled: depositService.checkAmountToDeposit(),
                   label: 'Make Deposit',
-                  onTap: () {},
+                  onTap: depositService.checkAmountToDeposit()
+                      ? () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const TransactionCompletionPage(
+                                isDeposit: true,
+                              ),
+                            ),
+                          );
+                        }
+                      : null,
                 );
               },
             )
