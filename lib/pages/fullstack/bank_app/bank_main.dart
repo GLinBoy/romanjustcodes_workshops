@@ -754,6 +754,8 @@ class TransactionCompletionPage extends StatelessWidget {
             if (snapshot.hasError) {
               return FlutterBankError();
             }
+
+            return FlutterBankTransactionComplete();
           },
         ),
       ),
