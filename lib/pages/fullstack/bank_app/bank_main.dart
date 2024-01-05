@@ -764,6 +764,21 @@ class TransactionCompletionPage extends StatelessWidget {
 class FlutterBankTransactionComplete extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: const [
+        Icon(
+          Icons.check_circle_outline_outlined,
+          color: Utils.mainThemeColor,
+          size: 80,
+        ),
+        SizedBox(height: 20),
+        Text(
+          'Transaction Complete',
+          style: TextStyle(color: Utils.mainThemeColor, fontSize: 20),
+        ),
+      ],
+    );
   }
 }
