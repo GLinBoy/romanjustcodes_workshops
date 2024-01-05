@@ -741,6 +741,10 @@ class TransactionCompletionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterBankService bankService =
         Provider.of<FlutterBankService>(context, listen: false);
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.of(context).pop();
+    });
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
