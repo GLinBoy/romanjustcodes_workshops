@@ -760,3 +760,10 @@ class TransactionCompletionPage extends StatelessWidget {
     );
   }
 }
+
+class FlutterBankTransactionComplete extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column();
+  }
+}
