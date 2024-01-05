@@ -51,7 +51,8 @@ class Utils {
         ));
   }
 
-  static List<FlutterBankBottomBarItem> getBottomBarItems() {
+  static List<FlutterBankBottomBarItem> getBottomBarItems(
+      BuildContext context) {
     return [
       FlutterBankBottomBarItem(
         label: 'Withdraw',
@@ -61,7 +62,11 @@ class Utils {
       FlutterBankBottomBarItem(
         label: 'Deposit',
         icon: Icons.login,
-        action: () {},
+        action: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => FlutterBankDeposit()),
+          );
+        },
       ),
       FlutterBankBottomBarItem(
         label: 'Expenses',
