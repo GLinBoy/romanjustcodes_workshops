@@ -897,6 +897,33 @@ class FlutterBankWithdrawal extends StatelessWidget {
 class AccountWithdrawalSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Consumer<WithdrawalService>(
+      builder: (context, withdrawalService, child) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Amount to Withdraw',
+              style: TextStyle(color: Colors.grey),
+            ),
+            Text(
+              '\$${withdrawalService.amountToWithdraw.toInt().toString()}',
+              style: const TextStyle(color: Colors.black, fontSize: 60),
+            ),
+            Slider(
+              value: withdrawalService.amountToWithdraw,
+              max: 1000,
+              activeColor: Utils.mainThemeColor,
+              inactiveColor: Colors.grey.withOpacity(0.5),
+              thumbColor: Utils.mainThemeColor,
+              onChanged: (double value) {
+                withdrawalService.setAmountToWithdraw(value);
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
