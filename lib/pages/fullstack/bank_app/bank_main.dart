@@ -819,3 +819,21 @@ class FlutterBankTransactionComplete extends StatelessWidget {
     );
   }
 }
+
+class WithdrawalService extends ChangeNotifier {
+  double amountToWithdraw = 0;
+
+  void setAmountToWithdraw(double amount) {
+    amountToWithdraw = amount;
+    notifyListeners();
+  }
+
+  void resetWithdrawService() {
+    amountToWithdraw = 0;
+    notifyListeners();
+  }
+
+  bool checkAmountToWithdraw() {
+    return amountToWithdraw > 0;
+  }
+}
