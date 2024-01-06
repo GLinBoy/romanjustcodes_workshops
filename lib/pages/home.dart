@@ -29,6 +29,9 @@ final List<PageItem> pageItems = [
         ChangeNotifierProvider(
           create: (_) => DonutShoppingCartService(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => WithdrawalService(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
