@@ -885,7 +885,7 @@ class FlutterBankWithdrawal extends StatelessWidget {
           Expanded(
             child: AccountActionSelection(
               actionTypeLabel: 'From',
-              amountChanger: Container(),
+              amountChanger: AccountWithdrawalSlider(),
             ),
           ),
         ],
