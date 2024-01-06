@@ -893,3 +893,10 @@ class FlutterBankWithdrawal extends StatelessWidget {
     );
   }
 }
+
+class AccountWithdrawalSlider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column();
+  }
+}
