@@ -198,6 +198,34 @@ class FlutterBankService extends ChangeNotifier {
 
     return depositComplete.future;
   }
+
+  Future<bool> performWithdrawal(BuildContext context) {
+    Completer<bool> withdrawComplete = Completer();
+
+    LoginService loginService =
+        Provider.of<LoginService>(context, listen: false);
+    String userId = loginService.getUserId();
+
+    WithdrawalService wService =
+        Provider.of<WithdrawalService>(context, listen: false);
+    int amountToWithdraw = wService.amountToWithdraw.toInt();
+
+    DocumentReference doc = FirebaseFirestore.instance
+        .collection('accounts')
+        .doc(userId)
+        .collection('user_accounts')
+        .doc(selectedAccount!.id!);
+
+    doc.update({'balance': selectedAccount!.balance! - amountToWithdraw}).then(
+        (value) {
+      wService.resetWithdrawService();
+      withdrawComplete.complete(true);
+    }, onError: (error) {
+      withdrawComplete.completeError({'error': error});
+    });
+
+    return withdrawComplete.future;
+  }
 }
 
 class AccountCard extends StatelessWidget {
