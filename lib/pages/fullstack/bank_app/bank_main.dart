@@ -865,3 +865,10 @@ class WithdrawalService extends ChangeNotifier {
     return amountToWithdraw > 0;
   }
 }
+
+class FlutterBankWithdrawal extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
