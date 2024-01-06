@@ -882,6 +882,12 @@ class FlutterBankWithdrawal extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           AccountActionHeader(headerTitle: 'Withdraw', icon: Icons.logout),
+          Expanded(
+            child: AccountActionSelection(
+              actionTypeLabel: 'From',
+              amountChanger: Container(),
+            ),
+          ),
         ],
       ),
     );
