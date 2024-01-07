@@ -888,36 +888,39 @@ class FlutterBankWithdrawal extends StatelessWidget {
               const Icon(Icons.savings, color: Utils.mainThemeColor, size: 40),
           centerTitle: true,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            AccountActionHeader(headerTitle: 'Withdraw', icon: Icons.logout),
-            Expanded(
-              child: AccountActionSelection(
-                actionTypeLabel: 'From',
-                amountChanger: AccountWithdrawalSlider(),
+        body: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              AccountActionHeader(headerTitle: 'Withdraw', icon: Icons.logout),
+              Expanded(
+                child: AccountActionSelection(
+                  actionTypeLabel: 'From',
+                  amountChanger: AccountWithdrawalSlider(),
+                ),
               ),
-            ),
-            Consumer<WithdrawalService>(
-              builder: (context, withdrawalService, child) {
-                return FlutterBankMainButton(
-                  enabled: withdrawalService.checkAmountToWithdraw(),
-                  label: 'Make Withdrawal',
-                  onTap: withdrawalService.checkAmountToWithdraw()
-                      ? () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const TransactionCompletionPage(
-                                      isDeposit: false),
-                            ),
-                          );
-                        }
-                      : null,
-                );
-              },
-            ),
-          ],
+              Consumer<WithdrawalService>(
+                builder: (context, withdrawalService, child) {
+                  return FlutterBankMainButton(
+                    enabled: withdrawalService.checkAmountToWithdraw(),
+                    label: 'Make Withdrawal',
+                    onTap: withdrawalService.checkAmountToWithdraw()
+                        ? () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const TransactionCompletionPage(
+                                        isDeposit: false),
+                              ),
+                            );
+                          }
+                        : null,
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
