@@ -123,6 +123,7 @@ class Account {
 
 class FlutterBankService extends ChangeNotifier {
   Account? selectedAccount;
+  List<Expense> expenses = [];
 
   void setSelectedAccount(Account? acct) {
     selectedAccount = acct;
@@ -225,6 +226,34 @@ class FlutterBankService extends ChangeNotifier {
     });
 
     return withdrawComplete.future;
+  }
+
+  Stream<List<Expense>> getExpenses(BuildContext context) {
+    LoginService loginService =
+        Provider.of<LoginService>(context, listen: false);
+    String userId = loginService.getUserId();
+
+    var controller = StreamController<List<Expense>>();
+
+    FirebaseFirestore.instance
+        .collection('accounts')
+        .doc(userId)
+        .collection('user_expenses')
+        .snapshots()
+        .listen(
+      (QuerySnapshot collection) {
+        expenses.clear();
+
+        for (var doc in collection.docs) {
+          var expenseJson = doc.data() as Map<String, dynamic>;
+          expenses.add(Expense.fromJson(expenseJson, doc.id));
+        }
+
+        controller.add(expenses);
+      },
+    );
+
+    return controller.stream;
   }
 }
 
