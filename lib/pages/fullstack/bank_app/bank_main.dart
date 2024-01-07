@@ -888,6 +888,15 @@ class FlutterBankWithdrawal extends StatelessWidget {
               amountChanger: AccountWithdrawalSlider(),
             ),
           ),
+          Consumer<WithdrawalService>(
+            builder: (context, withdrawalService, child) {
+              return FlutterBankMainButton(
+                enabled: withdrawalService.checkAmountToWithdraw(),
+                label: 'Make Withdrawal',
+                onTap: () {},
+              );
+            },
+          ),
         ],
       ),
     );
