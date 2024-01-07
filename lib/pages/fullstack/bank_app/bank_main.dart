@@ -807,7 +807,9 @@ class TransactionCompletionPage extends StatelessWidget {
         ),
         body: Center(
           child: FutureBuilder(
-            future: bankService.performDeposit(context),
+            future: isDeposit!
+                ? bankService.performDeposit(context)
+                : bankService.performWithdrawal(context),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return FlutterBankLoading();
@@ -893,7 +895,17 @@ class FlutterBankWithdrawal extends StatelessWidget {
               return FlutterBankMainButton(
                 enabled: withdrawalService.checkAmountToWithdraw(),
                 label: 'Make Withdrawal',
-                onTap: () {},
+                onTap: withdrawalService.checkAmountToWithdraw()
+                    ? () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const TransactionCompletionPage(
+                                    isDeposit: false),
+                          ),
+                        );
+                      }
+                    : null,
               );
             },
           ),
