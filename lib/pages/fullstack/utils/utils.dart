@@ -57,7 +57,11 @@ class Utils {
       FlutterBankBottomBarItem(
         label: 'Withdraw',
         icon: Icons.logout,
-        action: () {},
+        action: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => FlutterBankWithdrawal()),
+          );
+        },
       ),
       FlutterBankBottomBarItem(
         label: 'Deposit',
