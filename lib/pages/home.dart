@@ -29,9 +29,6 @@ final List<PageItem> pageItems = [
         ChangeNotifierProvider(
           create: (_) => DonutShoppingCartService(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => WithdrawalService(),
-        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -52,6 +49,7 @@ final List<PageItem> pageItems = [
         ChangeNotifierProvider(create: (_) => LoginService()),
         ChangeNotifierProvider(create: (_) => FlutterBankService()),
         ChangeNotifierProvider(create: (_) => DepositService()),
+        ChangeNotifierProvider(create: (_) => WithdrawalService()),
       ],
       // child: bank_splash.FlutterBankSplash(),
       child: FlutterBankApp(),
