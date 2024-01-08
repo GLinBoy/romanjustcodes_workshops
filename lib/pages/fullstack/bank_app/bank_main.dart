@@ -1063,7 +1063,10 @@ class FlutterBankExpenses extends StatelessWidget {
                     itemCount: expenses.length,
                     itemBuilder: (context, index) {
                       var expense = expenses[index];
-                      return Text(expense.name!);
+                      return ExpenseCard(
+                        expense: expense,
+                        onDeleteExpense: () {},
+                      );
                     },
                   );
                 },
