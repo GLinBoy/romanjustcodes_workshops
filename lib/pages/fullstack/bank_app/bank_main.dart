@@ -1020,6 +1020,9 @@ class Expense {
 class FlutterBankExpenses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    FlutterBankService bankService =
+        Provider.of<FlutterBankService>(context, listen: false);
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -1039,7 +1042,24 @@ class FlutterBankExpenses extends StatelessWidget {
               headerTitle: 'My Expenses',
             ),
             Expanded(
-              child: Container(),
+              child: StreamBuilder<List<Expense>>(
+                stream: bankService.getExpenses(context),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return FlutterBankLoading();
+                  }
+
+                  if (snapshot.hasError) {
+                    return FlutterBankError();
+                  }
+
+                  var expenses = snapshot.data as List<Expense>;
+
+                  if (expenses.isEmpty) {
+                    return FlutterBankNoExpenses();
+                  }
+                },
+              ),
             ),
             const SizedBox(height: 20),
             FlutterBankMainButton(
