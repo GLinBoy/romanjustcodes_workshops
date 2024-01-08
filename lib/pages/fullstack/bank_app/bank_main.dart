@@ -1033,7 +1033,20 @@ class FlutterBankExpenses extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+          children: [
+            AccountActionHeader(
+              icon: Icons.payment,
+              headerTitle: 'My Expenses',
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            const SizedBox(height: 20),
+            FlutterBankMainButton(
+              label: 'Add Expense',
+              onTap: () {},
+            ),
+          ],
         ),
       ),
     );
