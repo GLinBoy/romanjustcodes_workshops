@@ -1058,6 +1058,12 @@ class FlutterBankExpenses extends StatelessWidget {
                   if (expenses.isEmpty) {
                     return FlutterBankNoExpenses();
                   }
+                  return ListView.builder(
+                    itemBuilder: (context, index) {
+                      var expense = expenses[index];
+                      return Text(expense.name!);
+                    },
+                  );
                 },
               ),
             ),
