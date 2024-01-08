@@ -1059,6 +1059,8 @@ class FlutterBankExpenses extends StatelessWidget {
                     return FlutterBankNoExpenses();
                   }
                   return ListView.builder(
+                    padding: const EdgeInsets.all(10),
+                    itemCount: expenses.length,
                     itemBuilder: (context, index) {
                       var expense = expenses[index];
                       return Text(expense.name!);
@@ -1097,5 +1099,18 @@ class FlutterBankNoExpenses extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class ExpenseCard extends StatelessWidget {
+  final Expense? expense;
+  final Function? onDeleteExpense;
+
+  const ExpenseCard({Key? key, this.expense, this.onDeleteExpense})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
