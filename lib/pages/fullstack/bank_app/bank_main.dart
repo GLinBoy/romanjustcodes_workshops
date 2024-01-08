@@ -1052,3 +1052,10 @@ class FlutterBankExpenses extends StatelessWidget {
     );
   }
 }
+
+class FlutterBankNoExpenses extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center();
+  }
+}
