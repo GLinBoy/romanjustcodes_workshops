@@ -1029,6 +1029,13 @@ class FlutterBankExpenses extends StatelessWidget {
         title: const Icon(Icons.savings, color: Utils.mainThemeColor, size: 40),
         centerTitle: true,
       ),
+      body: Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [],
+        ),
+      ),
     );
   }
 }
