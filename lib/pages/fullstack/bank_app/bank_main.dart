@@ -255,6 +255,26 @@ class FlutterBankService extends ChangeNotifier {
 
     return controller.stream;
   }
+
+  void addExpense(BuildContext context) {
+    LoginService loginService =
+        Provider.of<LoginService>(context, listen: false);
+    String userId = loginService.getUserId();
+
+    CollectionReference expensesCollection = FirebaseFirestore.instance
+        .collection('accounts')
+        .doc('')
+        .collection('user_expenses');
+
+    expensesCollection
+        .add({
+          'amount': 100,
+          'timestamp': DateTime.now().toIso8601String(),
+          'name': 'Sample Expense'
+        })
+        .then((value) => print('Document added'))
+        .catchError((error) => print('error during adding'));
+  }
 }
 
 class AccountCard extends StatelessWidget {
@@ -1075,7 +1095,9 @@ class FlutterBankExpenses extends StatelessWidget {
             const SizedBox(height: 20),
             FlutterBankMainButton(
               label: 'Add Expense',
-              onTap: () {},
+              onTap: () {
+                bankService.addExpense(context);
+              },
             ),
           ],
         ),
