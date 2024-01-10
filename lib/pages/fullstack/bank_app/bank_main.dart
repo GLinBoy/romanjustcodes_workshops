@@ -263,7 +263,7 @@ class FlutterBankService extends ChangeNotifier {
 
     CollectionReference expensesCollection = FirebaseFirestore.instance
         .collection('accounts')
-        .doc('')
+        .doc('lLBuBs7RUKfNnhSs0UjHeIgoojr2')
         .collection('user_expenses');
 
     expensesCollection
