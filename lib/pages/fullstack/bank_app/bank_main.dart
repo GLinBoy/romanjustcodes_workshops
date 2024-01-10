@@ -275,6 +275,23 @@ class FlutterBankService extends ChangeNotifier {
         .then((value) => print('Document added'))
         .catchError((error) => print('error during adding'));
   }
+
+  void deleteExpense(BuildContext context, String expenseId) {
+    LoginService loginService =
+        Provider.of<LoginService>(context, listen: false);
+    String userId = loginService.getUserId();
+
+    DocumentReference expenseToDelete = FirebaseFirestore.instance
+        .collection('accounts')
+        .doc(userId)
+        .collection('user_expenses')
+        .doc(expenseId);
+
+    expenseToDelete
+        .delete()
+        .then((value) => print('Document deleted'))
+        .catchError((error) => print('error while deleting document'));
+  }
 }
 
 class AccountCard extends StatelessWidget {
@@ -1085,7 +1102,9 @@ class FlutterBankExpenses extends StatelessWidget {
                       var expense = expenses[index];
                       return ExpenseCard(
                         expense: expense,
-                        onDeleteExpense: () {},
+                        onDeleteExpense: () {
+                          bankService.deleteExpense(context, expense.id!);
+                        },
                       );
                     },
                   );
@@ -1184,7 +1203,9 @@ class ExpenseCard extends StatelessWidget {
               color: Colors.transparent,
               child: IconButton(
                 icon: const Icon(Icons.delete_forever, color: Colors.grey),
-                onPressed: () {},
+                onPressed: () {
+                  onDeleteExpense!();
+                },
               ),
             ),
           ),
