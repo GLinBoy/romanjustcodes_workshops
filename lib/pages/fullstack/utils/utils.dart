@@ -75,7 +75,11 @@ class Utils {
       FlutterBankBottomBarItem(
         label: 'Expenses',
         icon: Icons.payment,
-        action: () {},
+        action: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => FlutterBankExpenses()),
+          );
+        },
       ),
     ];
   }

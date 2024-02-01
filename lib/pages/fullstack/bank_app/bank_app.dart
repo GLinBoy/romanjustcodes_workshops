@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:romanjustcodes_workshops/pages/fullstack/bank_app/bank_main.dart';
 import 'package:romanjustcodes_workshops/pages/fullstack/bank_splash/bank_splash.dart';
 
 class FlutterBankApp extends StatelessWidget {
@@ -12,7 +13,8 @@ class FlutterBankApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: FlutterBankSplash(),
+      // home: FlutterBankSplash(),
+      home: FlutterBankMain(),
     );
   }
 }
